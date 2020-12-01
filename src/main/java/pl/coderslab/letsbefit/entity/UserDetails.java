@@ -1,0 +1,42 @@
+package pl.coderslab.letsbefit.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Data
+@NoArgsConstructor
+@Entity
+@AllArgsConstructor
+@Table(name = "users_details")
+public class UserDetails {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(columnDefinition="VARCHAR(255) NULL COMMENT 'User nickname'")
+    private String nickname;
+
+    @Column(columnDefinition="VARCHAR(6) NULL COMMENT 'User sex'")
+    private String sex;
+
+    @Column(columnDefinition="DATETIME NULL COMMENT 'User date of birth'")
+    private String birthday;
+
+    @Column(columnDefinition="DECIMAL(4,1) NULL COMMENT 'User weight'")
+    private Double weight;
+
+    @OneToOne
+    private User user;
+
+    public UserDetails(Long id, String nickname, String sex, String birthday, Double weight) {
+        this.id = id;
+        this.nickname = nickname;
+        this.sex = sex;
+        this.birthday = birthday;
+        this.weight = weight;
+    }
+}
