@@ -19,7 +19,7 @@ public class LoadFixtures {
 
     @EventListener(ApplicationReadyEvent.class)
     public void runAfterStartup(){
-        userDetailsFixture.loadIntoDB();
         userFixture.loadIntoDB();
+        userDetailsFixture.loadIntoDB();
     }
 }

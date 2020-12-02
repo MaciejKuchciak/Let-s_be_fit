@@ -10,10 +10,7 @@ import java.util.List;
 @Repository
 public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> {
 
-    UserDetails findFirstByNickname(String nickname);
-
-    UserDetails findFirstByBirthday(String birthday);
-
     @Query("Select ud from UserDetails ud")
     List<UserDetails> getUsersDetails();
+
 }

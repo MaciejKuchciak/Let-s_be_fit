@@ -18,6 +18,9 @@ public class User {
     private Long id;
 
     @Column(columnDefinition="VARCHAR(255) NOT NULL COMMENT 'First name'")
+    private String login;
+
+    @Column(columnDefinition="VARCHAR(255) NOT NULL COMMENT 'First name'")
     private String firstName;
 
     @Column(columnDefinition="VARCHAR(255) NULL COMMENT 'Last name'")
@@ -35,6 +38,6 @@ public class User {
     @Column(columnDefinition="TINYINT(1) NULL COMMENT '0 account disabled / 1 account enabled'")
     private int enable;
 
-    @OneToOne
+    @OneToOne(mappedBy = "user")
     private UserDetails userDetails;
 }
