@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserDetailsService {
 
-    List<UserDetails> getUsersDetails();
+    List<UserDetails> getAllUsersDetails();
 
     void add(UserDetails userDetails);
 

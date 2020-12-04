@@ -8,7 +8,7 @@ public interface UserService {
 
     boolean checkPasswordForRegister(String pass1, String pass2);
 
-    List<User> getUsers();
+    List<User> getAllUsers();
 
     void add(User user);
 

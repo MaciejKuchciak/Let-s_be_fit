@@ -1,0 +1,133 @@
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Let's be fit!'</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="Fitness Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"
+	/>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- Meta tag Keywords -->
+
+	<!-- css files -->
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="css/fontawesome-all.css">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+
+	<!-- web-fonts -->
+	<link href="//fonts.googleapis.com/css?family=Sigmar+One&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<!-- //web-fonts -->
+</head>
+
+<body>
+	<!-- title -->
+	<h1><strong>Let's be fit! </strong><br>Register Form </h1>
+	<!-- //title -->
+
+	<!-- content -->
+
+	<div style="float: left" class="sub-main-w1">
+		<div class="form-style-agile">
+			<a th:href="@{/index}"><div style="text-align: center; width: 75%" class="button">Main Page</div></a>
+		</div>
+	</div>
+	<div class="sub-main-w2">
+		<form method="post" th:action="@{/register}">
+<!--			<div style="color: white; float: left" th:if="${param.error}">-->
+<!--				<p>Invalid username and password</p>-->
+<!--			</div>-->
+			<div class="form-style-agile">
+				<label>
+					Username
+					<i class="fas fa-user-plus"></i>
+				</label>
+				<input th:field="*{users.login}" placeholder="Username" name="login" type="text" required="">
+			</div>
+			<div class="form-style-agile">
+				<label>
+					E-mail
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input th:field="*{users.email}" placeholder="Username" name="login" type="text" required="">
+			</div>
+			<div class="form-style-agile">
+				<label>
+					Password
+					<i class="fas fa-unlock-alt"></i>
+				</label>
+				<input th:field="*{users.password}" placeholder="Password" name="Password" id="txtPassword" type="password" required="">
+			</div>
+			<div class="form-style-agile">
+				<label>
+					Confirm Password
+					<i class="fas fa-retweet"></i>
+				</label>
+				<input placeholder="Confirm Password" name="confirmPassword" id="txtConfirmPassword" type="password" required="">
+			</div>
+			<div class="form-style-agile">
+				<label>
+					First Name
+					<i class="fas fa-user"></i>
+				</label>
+				<input th:field="*{users.firstName}" placeholder="First Name" name="firstName" type="text" required="">
+			</div>
+			<div class="form-style-agile">
+				<label>
+					Last Name
+					<i class="fas fa-user"></i>
+				</label>
+				<input th:field="*{users.lastName}" placeholder="Last Name" name="lastName" type="text" required="required">
+			</div>
+			<!-- checkbox -->
+			<!-- //switch -->
+			<div style="min-width:100%;">
+
+				<input type="submit" value="Register" onclick="return Validate()">
+
+			</div>
+		</form>
+
+	</div>
+
+	<div class="clear"></div>
+	<!-- //content -->
+
+	<!-- copyright -->
+	<div class="footer">
+		<h2>&copy; 2020 Let's' be fit. All rights reserved | Design by
+			<a href="http://w3layouts.com">W3layouts</a>
+		</h2>
+	</div>
+	<!-- //copyright -->
+
+</body>
+<script type="text/javascript">
+	function Validate() {
+		var password = document.getElementById("txtPassword").value;
+		var confirmPassword = document.getElementById("txtConfirmPassword").value;
+		if (password != confirmPassword) {
+			alert("Passwords do not match.");
+			return false;
+		}
+		return true;
+	}
+</script>
+</html>

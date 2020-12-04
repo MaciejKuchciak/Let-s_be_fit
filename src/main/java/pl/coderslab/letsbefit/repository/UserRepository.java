@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findFirstByLastName(String lastName);
 
     @Query("Select u from User u")
-    List<User> getUsers();
+    List<User> findAll();
 
     boolean existsByLogin(String login);
 

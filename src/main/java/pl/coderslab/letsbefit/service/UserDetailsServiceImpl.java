@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{
 
-    private UserDetailsRepository userDetailsRepository;
+    private final UserDetailsRepository userDetailsRepository;
 
     @Autowired
     public UserDetailsServiceImpl(UserDetailsRepository userDetailsRepository) {
@@ -21,8 +21,8 @@ public class UserDetailsServiceImpl implements UserDetailsService{
     }
 
     @Override
-    public List<UserDetails> getUsersDetails() {
-        return userDetailsRepository.getUsersDetails();
+    public List<UserDetails> getAllUsersDetails() {
+        return userDetailsRepository.findAll();
     }
 
     @Override
@@ -51,11 +51,10 @@ public class UserDetailsServiceImpl implements UserDetailsService{
         LocalDate bDate = LocalDate.parse(userDetails.getBirthday(), formatter);
 
         if(userDetails.getSex().equals("male")){
-            rate = 66 + (13.7 * userDetails.getWeight()) + (5 * userDetails.getHeight()) - (6.8 * (Period.between(bDate, LocalDate.now()).getYears()));
+            rate = (66 + (13.7 * userDetails.getWeight()) + (5 * userDetails.getHeight()) - (6.8 * (Period.between(bDate, LocalDate.now()).getYears()))) * userDetails.getActivity();
         } else {
-            rate = 655 + (9.6 * userDetails.getWeight()) + (1.8 * userDetails.getHeight()) - (4.7 * (Period.between(bDate, LocalDate.now()).getYears()));
+            rate = (655 + (9.6 * userDetails.getWeight()) + (1.8 * userDetails.getHeight()) - (4.7 * (Period.between(bDate, LocalDate.now()).getYears()))) * userDetails.getActivity();
         }
-        int rateInt = (int) Math.round(rate);
-        return rateInt;
+        return (int) Math.round(rate);
     }
 }

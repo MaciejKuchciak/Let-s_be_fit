@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import pl.coderslab.letsbefit.service.CustomerUserDetailsService;
 
 @Configuration
@@ -23,21 +24,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/register").permitAll()
-//               .antMatchers("/admin/**").hasRole("USER")
+                .antMatchers("/","/index","/register").permitAll()
+//                .antMatchers("/register").permitAll().anyRequest().permitAll()
+               .antMatchers("/css/*", "/images/*", "/webfonts/*").permitAll()
+//                .anyRequest().permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin();
-//                .loginPage("/login")
-//                .usernameParameter("login") // username
-//                .passwordParameter("password") // password
-//                .defaultSuccessUrl("/userlist")
-//                .and()
-//                .logout()
-//                .logoutUrl("/logout")
-//                .logoutSuccessUrl("/userlist")
+                .formLogin()
+                .loginPage("/index")
+                .usernameParameter("login") // username
+                .passwordParameter("password") // password
+                .defaultSuccessUrl("/dashboard")
+                .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/index");
 //                .and()
 //                .csrf()
 //                .disable();

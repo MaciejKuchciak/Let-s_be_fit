@@ -33,7 +33,7 @@ public class UserDetailsFixture {
 
     public void loadIntoDB() {
 
-        List<User> userList = userService.getUsers();
+        List<User> userList = userService.getAllUsers();
 
         for (UserDetails userDetails : userDetailsList) {
             userDetailsService.add(userDetails);

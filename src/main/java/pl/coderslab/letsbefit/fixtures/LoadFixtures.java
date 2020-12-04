@@ -8,18 +8,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoadFixtures {
 
-    private UserFixture userFixture;
-    private UserDetailsFixture userDetailsFixture;
+    private final UserFixture userFixture;
+    private final UserDetailsFixture userDetailsFixture;
+    private final ProductFixture productFixture;
 
     @Autowired
-    public LoadFixtures(UserFixture userFixture, UserDetailsFixture userDetailsFixture){
+    public LoadFixtures(UserFixture userFixture, UserDetailsFixture userDetailsFixture, ProductFixture productFixture){
         this.userFixture = userFixture;
         this.userDetailsFixture = userDetailsFixture;
+        this.productFixture = productFixture;
     }
 
     @EventListener(ApplicationReadyEvent.class)
     public void runAfterStartup(){
         userFixture.loadIntoDB();
         userDetailsFixture.loadIntoDB();
+        productFixture.loadIntoDB();
     }
 }

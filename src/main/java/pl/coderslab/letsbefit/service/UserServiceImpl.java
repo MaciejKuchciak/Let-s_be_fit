@@ -31,8 +31,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUsers() {
-        return userRepository.getUsers();
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 
     @Override
