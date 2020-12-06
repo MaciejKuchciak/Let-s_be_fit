@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface PlanRepository extends JpaRepository<Plan, Long> {
 
-    Plan findFirstByCreationDate(String creationDate);
+    Plan findFirstByStartDate(String startDate);
 
     @Query("Select p from Plan p")
     List<Plan> findAll();

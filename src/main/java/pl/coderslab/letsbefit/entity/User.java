@@ -20,7 +20,7 @@ public class User {
     @Column(columnDefinition="VARCHAR(255) NOT NULL COMMENT 'First name'")
     private String login;
 
-    @Column(columnDefinition="VARCHAR(255) NOT NULL COMMENT 'First name'")
+    @Column(columnDefinition="VARCHAR(255) NULL COMMENT 'First name'")
     private String firstName;
 
     @Column(columnDefinition="VARCHAR(255) NULL COMMENT 'Last name'")

@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.coderslab.letsbefit.entity.User;
 import pl.coderslab.letsbefit.entity.UserDetails;
+import pl.coderslab.letsbefit.entity.Weight;
 import pl.coderslab.letsbefit.service.UserDetailsService;
 import pl.coderslab.letsbefit.service.UserService;
+import pl.coderslab.letsbefit.service.WeightService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,13 +15,15 @@ import java.util.List;
 @Component
 public class UserDetailsFixture {
 
-    private UserDetailsService userDetailsService;
-    private UserService userService;
+    private final UserDetailsService userDetailsService;
+    private final UserService userService;
+    private final WeightService weightService;
 
     @Autowired
-    public UserDetailsFixture(UserDetailsService userDetailsService, UserService userService) {
+    public UserDetailsFixture(UserDetailsService userDetailsService, UserService userService, WeightService weightService) {
         this.userDetailsService = userDetailsService;
         this.userService = userService;
+        this.weightService = weightService;
     }
 
     private List<UserDetails> userDetailsList = Arrays.asList(
@@ -51,11 +55,21 @@ public class UserDetailsFixture {
         userDetails4.setUser(userList.get(3));
         userDetails5.setUser(userList.get(4));
 
+        List<Weight> weightList = weightService.getAllWeights();
+
+        userDetails1.setWeights(Arrays.asList(weightList.get(0)));
+        userDetails2.setWeights(Arrays.asList(weightList.get(1)));
+        userDetails3.setWeights(Arrays.asList(weightList.get(2)));
+        userDetails4.setWeights(Arrays.asList(weightList.get(3)));
+        userDetails5.setWeights(Arrays.asList(weightList.get(4)));
+
         userDetailsService.add(userDetails1);
         userDetailsService.add(userDetails2);
         userDetailsService.add(userDetails3);
         userDetailsService.add(userDetails4);
         userDetailsService.add(userDetails5);
+
+
 
 
     }

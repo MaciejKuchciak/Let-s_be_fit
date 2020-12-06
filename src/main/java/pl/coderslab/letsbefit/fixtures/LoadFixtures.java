@@ -11,16 +11,22 @@ public class LoadFixtures {
     private final UserFixture userFixture;
     private final UserDetailsFixture userDetailsFixture;
     private final ProductFixture productFixture;
+    private final PlanFixture planFixture;
+    private final WeightFixture weightFixture;
 
     @Autowired
-    public LoadFixtures(UserFixture userFixture, UserDetailsFixture userDetailsFixture, ProductFixture productFixture){
+    public LoadFixtures(UserFixture userFixture, UserDetailsFixture userDetailsFixture, ProductFixture productFixture, PlanFixture planFixture, WeightFixture weightFixture){
         this.userFixture = userFixture;
         this.userDetailsFixture = userDetailsFixture;
         this.productFixture = productFixture;
+        this.planFixture = planFixture;
+        this.weightFixture = weightFixture;
     }
 
     @EventListener(ApplicationReadyEvent.class)
     public void runAfterStartup(){
+        planFixture.loadIntoDB();
+        weightFixture.loadIntoDB();
         userFixture.loadIntoDB();
         userDetailsFixture.loadIntoDB();
         productFixture.loadIntoDB();

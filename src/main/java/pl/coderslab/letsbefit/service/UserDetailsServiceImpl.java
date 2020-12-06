@@ -14,7 +14,6 @@ import java.util.List;
 public class UserDetailsServiceImpl implements UserDetailsService{
 
     private final UserDetailsRepository userDetailsRepository;
-
     @Autowired
     public UserDetailsServiceImpl(UserDetailsRepository userDetailsRepository) {
         this.userDetailsRepository = userDetailsRepository;
@@ -49,11 +48,12 @@ public class UserDetailsServiceImpl implements UserDetailsService{
         double rate;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate bDate = LocalDate.parse(userDetails.getBirthday(), formatter);
+        double lastWeight = userDetails.getWeights().get(userDetails.getWeights().size()-1).getCurrentWeight();
 
         if(userDetails.getSex().equals("male")){
-            rate = (66 + (13.7 * userDetails.getWeight()) + (5 * userDetails.getHeight()) - (6.8 * (Period.between(bDate, LocalDate.now()).getYears()))) * userDetails.getActivity();
+            rate = (66 + (13.7 * lastWeight + (5 * userDetails.getHeight()) - (6.8 * (Period.between(bDate, LocalDate.now()).getYears()))) * userDetails.getActivity());
         } else {
-            rate = (655 + (9.6 * userDetails.getWeight()) + (1.8 * userDetails.getHeight()) - (4.7 * (Period.between(bDate, LocalDate.now()).getYears()))) * userDetails.getActivity();
+            rate = (655 + (9.6 * lastWeight + (1.8 * userDetails.getHeight()) - (4.7 * (Period.between(bDate, LocalDate.now()).getYears()))) * userDetails.getActivity());
         }
         return (int) Math.round(rate);
     }

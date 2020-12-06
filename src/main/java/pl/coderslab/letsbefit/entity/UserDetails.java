@@ -38,11 +38,12 @@ public class UserDetails {
     @OneToMany(mappedBy = "user_details")
     private List<Weight> weights = new ArrayList<>();
 
-    public UserDetails(Long id, String sex, String birthday, Integer height, Double activity) {
+    public UserDetails(Long id, String sex, String birthday, Integer height, Double activity, List weights) {
         this.id = id;
         this.sex = sex;
         this.birthday = birthday;
         this.height = height;
         this.activity = activity;
+        this.weights = weights;
     }
 }
