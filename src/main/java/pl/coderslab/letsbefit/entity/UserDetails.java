@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -23,9 +25,6 @@ public class UserDetails {
     @Column(columnDefinition="DATETIME NULL COMMENT 'User date of birth'")
     private String birthday;
 
-    @Column(columnDefinition="DECIMAL(4,1) NULL COMMENT 'User weight'")
-    private Double weight;
-
     @Column(columnDefinition="INT NULL COMMENT 'User height'")
     private Integer height;
 
@@ -36,11 +35,13 @@ public class UserDetails {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public UserDetails(Long id, String sex, String birthday, Double weight, Integer height, Double activity) {
+    @OneToMany(mappedBy = "user_details")
+    private List<Weight> weights = new ArrayList<>();
+
+    public UserDetails(Long id, String sex, String birthday, Integer height, Double activity) {
         this.id = id;
         this.sex = sex;
         this.birthday = birthday;
-        this.weight = weight;
         this.height = height;
         this.activity = activity;
     }

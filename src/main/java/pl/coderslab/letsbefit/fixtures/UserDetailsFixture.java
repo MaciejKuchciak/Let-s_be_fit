@@ -23,11 +23,11 @@ public class UserDetailsFixture {
     }
 
     private List<UserDetails> userDetailsList = Arrays.asList(
-            new UserDetails(null, "male", "1980-12-11", 94.2,196, 1.2,null),
-            new UserDetails(null, "male", "2000-01-28", 84.6,182, 1.375,null),
-            new UserDetails(null, "female", "2008-07-01", 74.2,164, 1.55,null),
-            new UserDetails(null, "female", "1991-10-07", 64.3,155, 1.725,null),
-            new UserDetails(null, "male", "1972-08-31", 79.9,175, 1.9,null)
+            new UserDetails(null, "male", "1980-12-11",196, 1.2,null,null),
+            new UserDetails(null, "male", "2000-01-28",182, 1.375,null,null),
+            new UserDetails(null, "female", "2008-07-01",164, 1.55,null,null),
+            new UserDetails(null, "female", "1991-10-07",155, 1.725,null,null),
+            new UserDetails(null, "male", "1972-08-31",175, 1.9,null,null)
 
     );
 
