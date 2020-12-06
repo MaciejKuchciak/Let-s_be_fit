@@ -25,9 +25,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- Meta tag Keywords -->
 
     <!-- css files -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
     <!-- Style-CSS -->
-    <link rel="stylesheet" href="css/fontawesome-all.css">
+    <link rel="stylesheet" href="/css/fontawesome-all.css">
     <!-- Font-Awesome-Icons-CSS -->
     <!-- //css files -->
 
@@ -39,7 +39,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <body>
 <!-- title -->
-<h1><strong>Let's be fit! </strong><br>Dashboard </h1>
+<h1><strong>Let's be fit! </strong><br>Add new product to the list</h1>
 <!-- //title -->
 
 <!-- content -->
@@ -54,19 +54,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 </div>
 <div class="sub-main-w2">
-    <form action="#" method="post">
+    <form th:object="${product}" method="post" th:action="@{/products/add}">
         <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
             <label>
-                Username
-                <i class="fas fa-user-plus"></i>
+                Product Name
+                <i class="fas fa-images"></i>
             </label>
-            <input placeholder="Username" name="Name" type="text" required="">
+            <input th:field="*{name}" placeholder="Product name" type="text" required="" min="2">
         </div>
+        <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
+            <label>
+                Number of calories in 100g / 100 ml
+                <i class="fas fa-heartbeat"></i>
+            </label>
+            <input th:field="*{calories}" placeholder="0" type="number" required="" min="1">
+        </div>
+
+
+<!--        <div class="form-style-agile">-->
+<!--            <label>-->
+<!--                Number of calories in 100g / 100 ml-->
+<!--                <i class="fas fa-poll"></i>-->
+<!--            </label>-->
+<!--            <input th:field="*{calories}" placeholder="Calories" type="number" required="">-->
+<!--        </div>-->
+
         <!-- checkbox -->
         <!-- //switch -->
         <div style="min-width:100%;">
 
-            <input type="submit" value="Register">
+            <input type="submit" value="Add Product">
 
         </div>
     </form>

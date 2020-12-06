@@ -45,7 +45,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- content -->
 	<div class="sub-main-w3">
 		<form name="f" th:action="@{/index}" method="post">
-			<div style="color: white; float: left" th:if="${param.error}">
+			<div style="color: white; text-align: left" th:if="${param.error}">
 				<p>Invalid username and password</p>
 			</div>
 			<div class="form-style-agile">
@@ -53,7 +53,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					Username
 					<i class="fas fa-user"></i>
 				</label>
-				<input id="input1" type="text" class="name" name="login" placeholder="Username" required=""/>
+				<input id="input1" type="text" class="name" name="login" placeholder="Username" required="" min="5"/>
 			</div>
 			<div class="form-style-agile">
 				<label>

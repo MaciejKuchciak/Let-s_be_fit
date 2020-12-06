@@ -33,7 +33,14 @@ public class ProductFixture {
             new Product(null, "Butter", 750),
             new Product(null, "Mars bar", 480),
             new Product(null, "Toffee", 400),
-            new Product(null, "Jam", 250)
+            new Product(null, "Muesli", 390),
+            new Product(null, "Chapatis", 300),
+            new Product(null, "Spaghetti (boiled)", 101),
+            new Product(null, "Beef (roast)", 280),
+            new Product(null, "Anchovies tinned", 300),
+            new Product(null, "Ham", 240),
+            new Product(null, "Rabbit", 180),
+            new Product(null, "Trout fresh", 120)
 
     );
 

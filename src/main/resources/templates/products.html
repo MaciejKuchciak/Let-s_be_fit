@@ -39,7 +39,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <body>
 <!-- title -->
-<h1><strong>Let's be fit! </strong><br>Dashboard </h1>
+<h1><strong>Let's be fit!</strong><br>Products List</h1>
 <!-- //title -->
 
 <!-- content -->
@@ -56,19 +56,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="sub-main-w2">
     <form action="#" method="post">
         <div class="form-style-agile">
-            <label>
-                Username
-                <i class="fas fa-user-plus"></i>
-            </label>
-            <input placeholder="Username" name="Name" type="text" required="">
+            <table>
+                <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Calories in 100g/100ml</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product: ${products}">
+                    <td th:text="${product.name}" ></td>
+                    <td th:text="${product.calories}" style="padding-left: 100px"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <!-- checkbox -->
-        <!-- //switch -->
-        <div style="min-width:100%;">
-
-            <input type="submit" value="Register">
-
-        </div>
+        <a th:href="@{/products/add}"><div style="text-align: center; width: 93%" class="button">Add Product</div></a>
     </form>
 
 </div>

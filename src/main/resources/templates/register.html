@@ -8,6 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <head>
 	<title>Let's be fit!'</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8" />
@@ -51,10 +52,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 	<div class="sub-main-w2">
 		<form method="post" th:action="@{/register}">
-<!--			<div style="color: white; float: left" th:if="${param.error}">-->
-<!--				<p>Invalid username and password</p>-->
-<!--			</div>-->
 			<div class="form-style-agile">
+				<div id="valid" style="color: white; text-align: center"></div>
 				<label>
 					Username
 					<i class="fas fa-user-plus"></i>
@@ -66,7 +65,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					E-mail
 					<i class="fas fa-envelope"></i>
 				</label>
-				<input th:field="*{users.email}" placeholder="Username" name="login" type="text" required="">
+				<input th:field="*{users.email}" placeholder="Username" name="email" type="text" required="">
 			</div>
 			<div class="form-style-agile">
 				<label>
@@ -125,9 +124,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		var confirmPassword = document.getElementById("txtConfirmPassword").value;
 		if (password != confirmPassword) {
 			alert("Passwords do not match.");
-			return false;
+			document.getElementById("valid").innerHTML = "Passwords do not match";
+			$("#valid").fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200)
+			blinking();
 		}
-		return true;
+
+	}
+	function blinking(){
+		$("#valid").fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200)
+		setTimeout("blinking()",1000);
 	}
 </script>
 </html>

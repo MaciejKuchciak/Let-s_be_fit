@@ -129,9 +129,37 @@ q:after {
     content: none;
 }
 
-table {
+table > tr > th, td {
     border-collapse: collapse;
     border-spacing: 0;
+    border: 1px solid white;
+    padding-left: 40px;
+    width: 100%;
+}
+
+th {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: 300px;
+}
+
+td {
+    color: white;
+    width: 300px;
+
+}
+
+thead, tbody {
+    display: inline-block;
+    width: 100%;
+
+}
+
+tbody {
+    max-height: 400px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
 }
 
 /* start editing from here */
@@ -297,7 +325,7 @@ h1 span {
     text-align: center;
 }
 
-.form-style-agile input[type="text"], .form-style-agile input[type="password"] {
+.form-style-agile input[type="text"], .form-style-agile input[type="number"],.form-style-agile input[type="password"] {
     width: 100%;
     color: #000;
     outline: none;

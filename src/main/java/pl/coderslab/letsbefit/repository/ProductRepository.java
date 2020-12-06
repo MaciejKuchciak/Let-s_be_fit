@@ -16,7 +16,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Product findFirstByCalories(int calories);
 
-    @Query("Select p from Product p")
+    @Query("Select p from Product p order by p.name")
     List<Product> findAll();
 
 }

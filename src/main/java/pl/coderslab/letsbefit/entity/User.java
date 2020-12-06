@@ -33,10 +33,10 @@ public class User {
     private String password;
 
     @Column(columnDefinition="TINYINT(1) NULL COMMENT '0 regular user / 1 admin access'")
-    private int superadmin;
+    private int superadmin = 0;
 
     @Column(columnDefinition="TINYINT(1) NULL COMMENT '0 account disabled / 1 account enabled'")
-    private int enable;
+    private int enable = 1;
 
     @OneToOne(mappedBy = "user")
     private UserDetails userDetails;
