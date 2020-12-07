@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.letsbefit.entity.User;
+import pl.coderslab.letsbefit.service.UserDetailsService;
 import pl.coderslab.letsbefit.service.UserService;
 
 
@@ -16,10 +17,12 @@ import pl.coderslab.letsbefit.service.UserService;
 public class UserController {
 
     private final UserService userService;
+    private final UserDetailsService userDetailsService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UserDetailsService userDetailsService) {
         this.userService = userService;
+        this.userDetailsService = userDetailsService;
     }
 
     @GetMapping("/index")

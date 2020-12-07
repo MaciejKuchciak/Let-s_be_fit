@@ -44,7 +44,7 @@ public class WeightServiceImpl implements WeightService{
     }
 
     @Override
-    public List<User> getWeightByUserLogin(String username) {
+    public List<Weight> getWeightByUserLogin(String username) {
         return weightRepository.getWeightByUserLogin(username);
     }
 }

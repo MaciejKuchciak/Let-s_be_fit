@@ -42,11 +42,10 @@ public class PlanServiceImpl implements PlanService{
     @Override
     public void update(Plan plan) {
         planRepository.save(plan);
-
     }
 
     @Override
-    public List<User> getPlanByUserLogin(String username) {
+    public List<Plan> getPlanByUserLogin(String username) {
         return planRepository.getPlanByUserLogin(username);
     }
 }

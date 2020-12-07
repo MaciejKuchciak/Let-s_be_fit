@@ -46,7 +46,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
     }
 
     @Override
-    public List<User> getUserDetailsByUserLogin(String username) {
+    public List<UserDetails> getUserDetailsByUserLogin(String username) {
         return userDetailsRepository.getUserDetailsByUserLogin(username);
     }
 

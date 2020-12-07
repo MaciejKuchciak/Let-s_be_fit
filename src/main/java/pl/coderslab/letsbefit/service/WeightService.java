@@ -17,6 +17,6 @@ public interface WeightService {
 
     void update(Weight weight);
 
-    List<User> getWeightByUserLogin(String username);
+    List<Weight> getWeightByUserLogin(String username);
 
 }

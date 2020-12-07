@@ -17,6 +17,6 @@ public interface PlanService {
 
     void update(Plan plan);
 
-    List<User> getPlanByUserLogin(String username);
+    List<Plan> getPlanByUserLogin(String username);
 
 }

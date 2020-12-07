@@ -17,6 +17,6 @@ public interface UserDetailsService {
 
     void update(UserDetails userDetails);
 
-    List<User> getUserDetailsByUserLogin(String username);
+    List<UserDetails> getUserDetailsByUserLogin(String username);
 
 }

@@ -25,9 +25,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- Meta tag Keywords -->
 
     <!-- css files -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
     <!-- Style-CSS -->
-    <link rel="stylesheet" href="css/fontawesome-all.css">
+    <link rel="stylesheet" href="/css/fontawesome-all.css">
     <!-- Font-Awesome-Icons-CSS -->
     <!-- //css files -->
 
@@ -39,7 +39,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <body>
 <!-- title -->
-<h1><strong>Let's be fit! </strong><br>Dashboard </h1>
+<h1><strong>Let's be fit! </strong><br>Detailed Data</h1>
 <!-- //title -->
 
 <!-- content -->
@@ -57,17 +57,45 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 </div>
 <div class="sub-main-w2">
-    <form action="#" method="post">
+    <form th:object="${userDetails}" method="post" th:action="@{/userDetails}">
         <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
             <label>
-                <progress class="progress-bar" th:value="30" max="100"></progress>
+                Date of Birth
+                <i class="fas fa-images"></i>
             </label>
+<!--            <input th:field="*{birthday}" placeholder="DD-MM-YYYY" type="date">-->
         </div>
+        <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
+            <label>
+                Sex
+                <i class="fas fa-images"></i>
+            </label>
+<!--            <input th:field="*{sex}" placeholder="DD-MM-YYYY" type="radio">-->
+        </div>
+        <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
+            <label>
+                Height
+                <i class="fas fa-images"></i>
+            </label>
+<!--            <input th:field="*{height}" placeholder="0" min="0" type="number">-->
+        </div>
+        <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
+            <label>
+                Level of activity
+                <i class="fas fa-images"></i>
+            </label>
+<!--            <input th:field="*{activity}" placeholder="DD-MM-YYYY" type="radio">-->
+        </div>
+
         <!-- checkbox -->
         <!-- //switch -->
         <div style="min-width:100%;">
 
-            <a th:href="@{/weight}"><div style="text-align: center; width: 75%" class="button">Add today's weight</div></a>
+            <input type="submit" value="Submit Detailed Data">
 
         </div>
     </form>
