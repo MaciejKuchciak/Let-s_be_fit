@@ -43,4 +43,15 @@ public class User {
 
     @OneToOne(mappedBy = "user")
     private Plan plan;
+
+    public User(Long id, String login, String firstName, String lastName, String email, String password, int superadmin, int enable) {
+        this.id = id;
+        this.login = login;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.superadmin = superadmin;
+        this.enable = enable;
+    }
 }

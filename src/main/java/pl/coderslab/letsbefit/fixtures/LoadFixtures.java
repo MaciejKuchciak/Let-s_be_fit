@@ -25,10 +25,10 @@ public class LoadFixtures {
 
     @EventListener(ApplicationReadyEvent.class)
     public void runAfterStartup(){
-        planFixture.loadIntoDB();
-        weightFixture.loadIntoDB();
         userFixture.loadIntoDB();
+        planFixture.loadIntoDB();
         userDetailsFixture.loadIntoDB();
+        weightFixture.loadIntoDB();
         productFixture.loadIntoDB();
     }
 }

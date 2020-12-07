@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
-@AllArgsConstructor
 @Table(name = "weights")
 public class Weight {
 
@@ -25,4 +24,11 @@ public class Weight {
 
     @ManyToOne
     private UserDetails userDetails;
+
+    public Weight(Long id, String creationDate, Double currentWeight, UserDetails userDetails) {
+        this.id = id;
+        this.creationDate = creationDate;
+        this.currentWeight = currentWeight;
+        this.userDetails = userDetails;
+    }
 }
