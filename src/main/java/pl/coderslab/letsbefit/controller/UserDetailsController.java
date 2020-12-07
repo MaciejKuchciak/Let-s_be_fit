@@ -24,8 +24,8 @@ public class UserDetailsController {
 
     @GetMapping("")
     public String userDetails(Model model) {
-        List<UserDetails> userDetailsList = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
-        model.addAttribute("userDetails", userDetailsList);
+        UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
+        model.addAttribute("userDetails", userDetails);
         return "details";
     }
 }

@@ -45,7 +45,7 @@ public class PlanServiceImpl implements PlanService{
     }
 
     @Override
-    public List<Plan> getPlanByUserLogin(String username) {
+    public Plan getPlanByUserLogin(String username) {
         return planRepository.getPlanByUserLogin(username);
     }
 }

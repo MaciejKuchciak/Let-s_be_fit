@@ -1,6 +1,5 @@
 package pl.coderslab.letsbefit.service;
 
-import pl.coderslab.letsbefit.entity.User;
 import pl.coderslab.letsbefit.entity.UserDetails;
 
 import java.util.List;
@@ -17,6 +16,8 @@ public interface UserDetailsService {
 
     void update(UserDetails userDetails);
 
-    List<UserDetails> getUserDetailsByUserLogin(String username);
+    UserDetails getUserDetailsByUserLogin(String username);
 
-}
+    int calculateBMR(UserDetails userDetails);
+
+    }

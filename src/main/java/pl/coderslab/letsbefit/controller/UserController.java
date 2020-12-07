@@ -7,9 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.letsbefit.app.SecurityUtils;
 import pl.coderslab.letsbefit.entity.User;
+import pl.coderslab.letsbefit.entity.UserDetails;
 import pl.coderslab.letsbefit.service.UserDetailsService;
 import pl.coderslab.letsbefit.service.UserService;
+
+import java.util.List;
 
 
 @Controller
@@ -43,7 +47,13 @@ public class UserController {
     }
 
     @GetMapping("/dashboard")
-    public String dashboard() {
+    public String dashboard(Model model) {
+        UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
+        if(userDetails==null){
+            model.addAttribute("bmr","Please provide data first");
+        } else {
+            model.addAttribute("bmr",userDetailsService.calculateBMR(userDetails));
+        }
         return "dashboard";
     }
 

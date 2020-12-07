@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import pl.coderslab.letsbefit.entity.Plan;
-import pl.coderslab.letsbefit.entity.User;
 
 import java.util.List;
 
@@ -17,6 +16,6 @@ public interface PlanRepository extends JpaRepository<Plan, Long> {
     List<Plan> findAll();
 
     @Query("SELECT p FROM User u JOIN Plan p on u.id = p.id WHERE u.login = ?1")
-    List<Plan> getPlanByUserLogin(String username);
+    Plan getPlanByUserLogin(String username);
 
 }

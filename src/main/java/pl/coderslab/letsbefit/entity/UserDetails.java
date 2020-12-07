@@ -22,7 +22,7 @@ public class UserDetails {
     @Column(columnDefinition="VARCHAR(6) NULL COMMENT 'User sex'")
     private String sex;
 
-    @Column(columnDefinition="DATETIME NULL COMMENT 'User date of birth'")
+    @Column(columnDefinition="DATE NULL COMMENT 'User date of birth'")
     private String birthday;
 
     @Column(columnDefinition="INT NULL COMMENT 'User height'")

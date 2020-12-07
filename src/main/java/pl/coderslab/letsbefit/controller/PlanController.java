@@ -9,8 +9,6 @@ import pl.coderslab.letsbefit.app.SecurityUtils;
 import pl.coderslab.letsbefit.entity.Plan;
 import pl.coderslab.letsbefit.service.PlanService;
 
-import java.util.List;
-
 @Controller
 @RequestMapping("plan")
 public class PlanController {
@@ -24,8 +22,8 @@ public class PlanController {
 
     @GetMapping("")
     public String plan(Model model) {
-        List<Plan> plans = planService.getPlanByUserLogin(SecurityUtils.login());
-        model.addAttribute("plans", plans);
+        Plan plan = planService.getPlanByUserLogin(SecurityUtils.login());
+        model.addAttribute("plans", plan);
         return "plan";
     }
 }

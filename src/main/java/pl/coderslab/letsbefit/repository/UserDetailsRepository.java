@@ -14,6 +14,6 @@ public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> 
     List<UserDetails> findAll();
 
     @Query("SELECT ud FROM User u JOIN UserDetails ud on u.id = ud.id WHERE u.login = ?1")
-    List<UserDetails> getUserDetailsByUserLogin(String username);
+    UserDetails getUserDetailsByUserLogin(String username);
 
 }
