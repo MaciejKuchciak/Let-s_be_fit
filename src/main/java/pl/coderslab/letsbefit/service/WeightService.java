@@ -1,5 +1,6 @@
 package pl.coderslab.letsbefit.service;
 
+import pl.coderslab.letsbefit.entity.User;
 import pl.coderslab.letsbefit.entity.Weight;
 
 import java.util.List;
@@ -15,4 +16,7 @@ public interface WeightService {
     void remove(Long id);
 
     void update(Weight weight);
+
+    List<User> getWeightByUserLogin(String username);
+
 }

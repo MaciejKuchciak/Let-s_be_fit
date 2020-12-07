@@ -2,6 +2,7 @@ package pl.coderslab.letsbefit.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.coderslab.letsbefit.entity.User;
 import pl.coderslab.letsbefit.entity.UserDetails;
 import pl.coderslab.letsbefit.repository.UserDetailsRepository;
 
@@ -42,6 +43,11 @@ public class UserDetailsServiceImpl implements UserDetailsService{
     @Override
     public void update(UserDetails userDetails) {
         userDetailsRepository.save(userDetails);
+    }
+
+    @Override
+    public List<User> getUserDetailsByUserLogin(String username) {
+        return userDetailsRepository.getUserDetailsByUserLogin(username);
     }
 
     public int calculateBMR(UserDetails userDetails){

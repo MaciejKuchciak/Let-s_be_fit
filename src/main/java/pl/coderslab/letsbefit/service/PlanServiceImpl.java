@@ -3,6 +3,7 @@ package pl.coderslab.letsbefit.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.coderslab.letsbefit.entity.Plan;
+import pl.coderslab.letsbefit.entity.User;
 import pl.coderslab.letsbefit.repository.PlanRepository;
 
 import java.util.List;
@@ -42,5 +43,10 @@ public class PlanServiceImpl implements PlanService{
     public void update(Plan plan) {
         planRepository.save(plan);
 
+    }
+
+    @Override
+    public List<User> getPlanByUserLogin(String username) {
+        return planRepository.getPlanByUserLogin(username);
     }
 }
