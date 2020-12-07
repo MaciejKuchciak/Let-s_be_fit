@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -16,8 +17,8 @@ public class Weight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition="DATETIME NULL COMMENT 'Creation date of the record'")
-    private String creationDate;
+    @Column(columnDefinition="DATE NULL COMMENT 'Creation date of the record'")
+    private LocalDate creationDate;
 
     @Column(columnDefinition="DECIMAL(4,1) NULL COMMENT 'Current user weight'")
     private Double currentWeight;
@@ -25,7 +26,7 @@ public class Weight {
     @ManyToOne
     private UserDetails userDetails;
 
-    public Weight(Long id, String creationDate, Double currentWeight, UserDetails userDetails) {
+    public Weight(Long id, LocalDate creationDate, Double currentWeight, UserDetails userDetails) {
         this.id = id;
         this.creationDate = creationDate;
         this.currentWeight = currentWeight;

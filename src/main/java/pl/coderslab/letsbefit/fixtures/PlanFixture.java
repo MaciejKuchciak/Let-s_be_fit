@@ -7,6 +7,7 @@ import pl.coderslab.letsbefit.entity.User;
 import pl.coderslab.letsbefit.service.PlanService;
 import pl.coderslab.letsbefit.service.UserService;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,11 +24,11 @@ public class PlanFixture {
     }
 
     private List<Plan> plans = Arrays.asList(
-            new Plan(null,"2020-01-01",90.0,"2020-12-31",null),
-            new Plan(null,"2020-12-01",74.3,"2020-12-31",null),
-            new Plan(null,"2020-06-01",51.6,"2020-12-01",null),
-            new Plan(null,"2020-12-10",48.5,"2020-12-20",null),
-            new Plan(null,"2020-12-31",69.9,"2021-04-21",null)
+            new Plan(null, LocalDate.of(2020,1,1),90.0,LocalDate.of(2020,12,31),null),
+            new Plan(null,LocalDate.of(2020,12,1),74.3,LocalDate.of(2020,12,31),null),
+            new Plan(null,LocalDate.of(2020,6,1),51.6,LocalDate.of(2020,12,1),null),
+            new Plan(null,LocalDate.of(2020,12,10),48.5,LocalDate.of(2020,12,20),null),
+            new Plan(null,LocalDate.of(2020,12,31),69.9,LocalDate.of(2021,4,21),null)
     );
 
     public void loadIntoDB() {

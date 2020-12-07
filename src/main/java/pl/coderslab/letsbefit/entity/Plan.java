@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -17,14 +18,14 @@ public class Plan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition="DATETIME NULL COMMENT 'Start date of the plan'")
-    private String startDate;
+    @Column(columnDefinition="DATE NULL COMMENT 'Start date of the plan'")
+    private LocalDate startDate;
 
     @Column(columnDefinition="DECIMAL(4,1) NULL COMMENT 'Desired weight'")
     private Double targetWeight;
 
-    @Column(columnDefinition="DATETIME NULL COMMENT 'Due date to lose weight'")
-    private String targetDate;
+    @Column(columnDefinition="DATE NULL COMMENT 'Due date to lose weight'")
+    private LocalDate targetDate;
 
     @OneToOne
     @JoinColumn(name = "user_id")

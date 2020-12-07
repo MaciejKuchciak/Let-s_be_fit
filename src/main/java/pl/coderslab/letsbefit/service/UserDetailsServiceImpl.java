@@ -52,8 +52,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 
     public int calculateBMR(UserDetails userDetails){
         double rate;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate bDate = LocalDate.parse(userDetails.getBirthday(), formatter);
+        LocalDate bDate = userDetails.getBirthday();
         double lastWeight = userDetails.getWeights().get(userDetails.getWeights().size()-1).getCurrentWeight();
 
         if(userDetails.getSex().equals("male")){

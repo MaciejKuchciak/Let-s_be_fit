@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class UserDetails {
     private String sex;
 
     @Column(columnDefinition="DATE NULL COMMENT 'User date of birth'")
-    private String birthday;
+    private LocalDate birthday;
 
     @Column(columnDefinition="INT NULL COMMENT 'User height'")
     private Integer height;
@@ -38,7 +39,7 @@ public class UserDetails {
     @OneToMany(mappedBy = "userDetails")
     private List<Weight> weights = new ArrayList<>();
 
-    public UserDetails(Long id, String sex, String birthday, Integer height, Double activity) {
+    public UserDetails(Long id, String sex, LocalDate birthday, Integer height, Double activity) {
         this.id = id;
         this.sex = sex;
         this.birthday = birthday;

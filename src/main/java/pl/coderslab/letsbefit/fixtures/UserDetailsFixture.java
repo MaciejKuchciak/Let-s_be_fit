@@ -4,11 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.coderslab.letsbefit.entity.User;
 import pl.coderslab.letsbefit.entity.UserDetails;
-import pl.coderslab.letsbefit.entity.Weight;
 import pl.coderslab.letsbefit.service.UserDetailsService;
 import pl.coderslab.letsbefit.service.UserService;
-//import pl.coderslab.letsbefit.service.WeightService;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,21 +16,19 @@ public class UserDetailsFixture {
 
     private final UserDetailsService userDetailsService;
     private final UserService userService;
-//    private final WeightService weightService;
 
     @Autowired
     public UserDetailsFixture(UserDetailsService userDetailsService, UserService userService) {
         this.userDetailsService = userDetailsService;
         this.userService = userService;
-//        this.weightService = weightService;
     }
 
     private List<UserDetails> userDetailsList = Arrays.asList(
-            new UserDetails(null, "male", "1980-12-11",196, 1.2),
-            new UserDetails(null, "male", "2000-01-28",182, 1.375),
-            new UserDetails(null, "female", "2008-07-01",164, 1.55),
-            new UserDetails(null, "female", "1991-10-07",155, 1.725),
-            new UserDetails(null, "male", "1972-08-31",175, 1.9)
+            new UserDetails(null, "male", LocalDate.of(1980,12,11),196, 1.2),
+            new UserDetails(null, "male", LocalDate.of(2000,1,28),182, 1.375),
+            new UserDetails(null, "female", LocalDate.of(2008, 7, 1),164, 1.55),
+            new UserDetails(null, "female", LocalDate.of(1991,10,7),155, 1.725),
+            new UserDetails(null, "male", LocalDate.of(1972,8,31),175, 1.9)
 
     );
 
@@ -60,9 +57,6 @@ public class UserDetailsFixture {
         userDetailsService.add(userDetails3);
         userDetailsService.add(userDetails4);
         userDetailsService.add(userDetails5);
-
-
-
 
     }
 }
