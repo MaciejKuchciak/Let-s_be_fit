@@ -24,7 +24,10 @@ public class UserDetailsController {
     @GetMapping("")
     public String userDetails(Model model) {
         UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
+        model.addAttribute("newUserDetails", new UserDetails());
         model.addAttribute("userDetails", userDetails);
+        int numberOfUserDetails = userDetailsService.userDetailsQuantity(SecurityUtils.login());
+        model.addAttribute("numberOfUserDetails",numberOfUserDetails);
         return "details";
     }
 

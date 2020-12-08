@@ -20,4 +20,6 @@ public interface UserDetailsService {
 
     int calculateBMR(UserDetails userDetails);
 
-    }
+    int userDetailsQuantity(String username);
+
+}

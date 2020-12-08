@@ -73,19 +73,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="form-style-agile">
             <span><progress class="progress-bar" th:value="30" max="100"></progress></span>
         </div>
-        <div style="color: white">
-            Your current Basal Metabolic Rate (BMR) is:
-            <span style="font-weight: bold; font-size: 40px; color: greenyellow" th:text="${bmr}"></span>
+        <div style="color: white; text-align: center">
+            <div>Your current Basal Metabolic Rate (BMR) is:</div>
+            <div style="font-weight: bold; font-size: 40px; color: greenyellow" th:text="${bmr}"></div>
         </div>
         <!-- checkbox -->
         <!-- //switch -->
-        <div style="min-width:100%;">
+<!--        <div style="min-width:100%;">-->
 
             <a th:href="@{/weight}">
-                <div style="text-align: center; width: 75%" class="button">Add today's weight</div>
+                <div style="text-align: center; width: 100%" class="button">Add today's weight</div>
             </a>
 
-        </div>
+<!--        </div>-->
     </form>
 
 </div>

@@ -8,7 +8,6 @@ import pl.coderslab.letsbefit.repository.UserDetailsRepository;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -61,5 +60,10 @@ public class UserDetailsServiceImpl implements UserDetailsService{
             rate = (655 + (9.6 * lastWeight + (1.8 * userDetails.getHeight()) - (4.7 * (Period.between(bDate, LocalDate.now()).getYears()))) * userDetails.getActivity());
         }
         return (int) Math.round(rate);
+    }
+
+    @Override
+    public int userDetailsQuantity(String username) {
+        return userDetailsRepository.userDetailsQuantity(username);
     }
 }

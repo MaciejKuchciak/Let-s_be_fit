@@ -7,10 +7,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <body>
-<div th:fragment="planNotSet">
+<div th:fragment="detailsNotSet">
 
 <!-- title -->
-<h1><strong>Let's be fit! </strong><br>Manage your plan</h1>
+<h1><strong>Let's be fit! </strong><br>Detailed Data</h1>
 <!-- //title -->
 
 <!-- content -->
@@ -28,43 +28,46 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 </div>
 <div class="sub-main-w2">
-    <form th:object="${newPlan}" method="post" th:action="@{/plan}">
+    <form th:object="${newUserDetails}" method="post" th:action="@{/details}">
         <div class="form-style-agile">
             <div style="color: white; text-align: center"></div>
             <label>
-                Start Date
+                Date of Birth
                 <i class="fas fa-images"></i>
             </label>
             <div>
-            <input th:field="*{startDate}" placeholder="DD-MM-YYYY" type="date" required="">
-            </div>
+            <input th:field="*{birthday}" placeholder="YYYY-MM-DD" type="date"></div>
         </div>
         <div class="form-style-agile">
             <div style="color: white; text-align: center"></div>
             <label>
-                Target Date
+                Gender
                 <i class="fas fa-images"></i>
             </label>
-            <div>
-            <input th:field="*{targetDate}" placeholder="DD-MM-YYYY" type="date" required="">
-            </div>
+            <input type="radio" th:each="i : ${sex}" th:value="${i}" th:text="${i}">
         </div>
         <div class="form-style-agile">
             <div style="color: white; text-align: center"></div>
             <label>
-                Target Weight
+                Height
                 <i class="fas fa-images"></i>
             </label>
-            <input th:field="*{targetWeight}" placeholder="0" type="number" required="" min="0" step="0.1">
-            <input type="hidden" th:value="${userDetailsId.id}" id="userDetails" name="userDetails"/>
+            <input th:field="*{height}" placeholder="0" min="0" type="number">
         </div>
-
+        <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
+            <label>
+                Level of activity
+                <i class="fas fa-images"></i>
+            </label>
+            <input type="radio" th:each="i : ${activity}" th:value="${i}" th:text="${i}">
+        </div>
 
         <!-- checkbox -->
         <!-- //switch -->
         <div style="min-width:100%;">
 
-            <input type="submit" value="Submit Plan">
+            <input type="submit" value="Submit Detailed Data">
 
         </div>
     </form>
