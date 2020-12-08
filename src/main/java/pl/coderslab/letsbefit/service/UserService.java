@@ -18,4 +18,7 @@ public interface UserService {
 
     void update(User user);
 
+    User getByLogin(String login);
+
+
 }
