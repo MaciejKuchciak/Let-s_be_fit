@@ -57,7 +57,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </label>
             <input th:field="*{plan.targetWeight}" placeholder="0" type="number" required="" min="0" step="0.1">
             <input type="hidden" th:value="${userId.id}" id="user" name="user"/>
-            <label> plan id<input type="hidden" th:field="${plan.id}"/></label>
+            <input type="hidden" th:field="${plan.id}"/>
 
         </div>
 

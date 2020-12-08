@@ -28,6 +28,9 @@ public class WeightController {
     @GetMapping("")
     public String weight(Model model) {
         UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
+        if(userDetails == null){
+            return "redirect:/dashboard";
+        }
         UserDetails userDetailsId = userDetailsService.get(userDetails.getId());
         model.addAttribute("userDetailsId",userDetailsId);
         model.addAttribute("weight", new Weight());

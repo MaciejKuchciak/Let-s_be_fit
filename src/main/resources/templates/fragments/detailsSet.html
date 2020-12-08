@@ -9,81 +9,109 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body>
 <div th:fragment="detailsSet">
 
-<!-- title -->
-<h1><strong>Let's be fit! </strong><br>Detailed Data</h1>
-<!-- //title -->
+    <!-- title -->
+    <h1><strong>Let's be fit! </strong><br>Detailed Data</h1>
+    <!-- //title -->
 
-<!-- content -->
+    <!-- content -->
 
-<div style="float: left" class="sub-main-w1">
-    <label style="color: white">
-        <strong>Logged as:<br> <span style="font-weight: bold" th:text ="${#authentication.getName()}"></span></strong>
-    </label>
-    <div class="form-style-agile">
-        <a th:href="@{/dashboard}"><div style="text-align: center; width: 75%" class="button">Dashboard</div></a>
-        <a th:href="@{/details}"><div style="text-align: center; width: 75%" class="button">Calculation Data</div></a>
-        <a th:href="@{/plan}"><div style="text-align: center; width: 75%" class="button">Your Plan</div></a>
-        <a th:href="@{/products}"><div style="text-align: center; width: 75%" class="button">Products List</div></a>
-        <a th:href="@{/logout}"><div style="text-align: center; width: 75%" class="button">Logout</div></a>
+    <div style="float: left" class="sub-main-w1">
+        <label style="color: white">
+            <strong>Logged as:<br> <span style="font-weight: bold" th:text="${#authentication.getName()}"></span></strong>
+        </label>
+        <div class="form-style-agile">
+            <a th:href="@{/dashboard}">
+                <div style="text-align: center; width: 75%" class="button">Dashboard</div>
+            </a>
+            <a th:href="@{/details}">
+                <div style="text-align: center; width: 75%" class="button">Calculation Data</div>
+            </a>
+            <a th:href="@{/plan}">
+                <div style="text-align: center; width: 75%" class="button">Your Plan</div>
+            </a>
+            <a th:href="@{/products}">
+                <div style="text-align: center; width: 75%" class="button">Products List</div>
+            </a>
+            <a th:href="@{/logout}">
+                <div style="text-align: center; width: 75%" class="button">Logout</div>
+            </a>
+        </div>
     </div>
-</div>
-<div class="sub-main-w2">
-    <form th:object="${userDetails}" method="post" th:action="@{/details}">
-        <div class="form-style-agile">
-            <div style="color: white; text-align: center"></div>
-            <label>
-                Date of Birth
-                <i class="fas fa-images"></i>
-            </label>
-            <div>
-            <input th:field="*{birthday}" placeholder="YYYY-MM-DD" type="date"></div>
-        </div>
-        <div class="form-style-agile">
-            <div style="color: white; text-align: center"></div>
-            <label>
-                Gender
-                <i class="fas fa-images"></i>
-            </label>
-            <input type="radio" th:each="i : ${sex}" th:value="${i}" th:text="${i}">
-        </div>
-        <div class="form-style-agile">
-            <div style="color: white; text-align: center"></div>
-            <label>
-                Height
-                <i class="fas fa-images"></i>
-            </label>
-            <input th:field="*{height}" placeholder="0" min="0" type="number">
-        </div>
-        <div class="form-style-agile">
-            <div style="color: white; text-align: center"></div>
-            <label>
-                Level of activity
-                <i class="fas fa-images"></i>
-            </label>
-            <input type="radio" th:each="i : ${activity}" th:value="${i}" th:text="${i}">
-        </div>
+    <div class="sub-main-w2">
+        <form th:object="${userDetails}" method="post" th:action="@{/details}">
+            <div class="form-style-agile">
+                <div style="color: white; text-align: center"></div>
+                <label>
+                    Date of Birth
+                    <i class="fas fa-images"></i>
+                </label>
+                <div>
+                    <input th:field="*{birthday}" placeholder="YYYY-MM-DD" type="date"></div>
+            </div>
+            <div class="form-style-agile">
+                <div style="color: white; text-align: center"></div>
+                <label>
+                    Gender
+                    <i class="fas fa-images"></i>
+                </label>
+                <div>
+                <input th:field="*{sex}" type="radio" th:value="female" text="female" name="sex" id="female">
+                <label for="female">Female</label>
+                <input th:field="*{sex}" type="radio" th:value="male" text="male" name="sex" id="male">
+                <label for="male">Male</label></div>
+            </div>
+            <div class="form-style-agile">
+                <div style="color: white; text-align: center"></div>
+                <label>
+                    Height
+                    <i class="fas fa-images"></i>
+                </label>
+                <input th:field="*{height}" placeholder="0" min="0" type="number">
+            </div>
+            <div class="form-style-agile">
+                <div style="color: white; text-align: center"></div>
+                <label>
+                    Level of activity
+                    <i class="fas fa-images"></i>
+                </label>
+                <div>
+                <section>
+                    <label style="color: white;font-weight: bold"></label>
+                    <select class="select-css" th:field="*{activity}">
+                        <option th:value="1.2">Sedentary - if you do minimal exercise or no exercise</option>
+                        <option th:value="1.375">Slightly active - if you exercise lightly one to three days a week</option>
+                        <option th:value="1.55">Moderately active - if you exercise moderately for three to five days a week</option>
+                        <option th:value="1.725">Very active - if you exercise vigorously six to seven days a week,</option>
+                        <option th:value="1.9">Extra active - if you do very heavy exercise six to seven days a week or do physical labor</option>
+                    </select>
+                </section>
+                </div>
+                <input type="hidden" th:value="${userId.id}" id="user" name="user"/>
+                <input type="hidden" th:field="${userDetails.id}"/>
+                <br/>
+            </div>
 
-        <!-- checkbox -->
-        <!-- //switch -->
-        <div style="min-width:100%;">
+            <!-- checkbox -->
+            <!-- //switch -->
+            <div style="min-width:100%;">
 
-            <input type="submit" value="Submit Detailed Data">
+                <input type="submit" value="Submit Detailed Data">
 
-        </div>
-    </form>
+            </div>
+        </form>
 
-</div>
+    </div>
 
-<div class="clear"></div>
-<!-- //content -->
+    <div class="clear"></div>
+    <!-- //content -->
 
-<!-- copyright -->
-<div class="footer">
-    <h2>&copy; 2020 Let's' be fit. All rights reserved | Design by
-        <a href="http://w3layouts.com">W3layouts</a>
-    </h2>
-</div>
-<!-- //copyright -->
+    <!-- copyright -->
+    <div class="footer">
+        <h2>&copy; 2020 Let's' be fit. All rights reserved | Design by
+            <a href="http://w3layouts.com">W3layouts</a>
+        </h2>
+    </div>
+    <!-- //copyright -->
 </div>
 </body>
 

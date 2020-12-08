@@ -41,6 +41,6 @@ public class PlanController {
     @PostMapping
     public String addPlan(Plan plan){
         planService.add(plan);
-        return "redirect:/plan";
+        return "redirect:/dashboard";
     }
 }

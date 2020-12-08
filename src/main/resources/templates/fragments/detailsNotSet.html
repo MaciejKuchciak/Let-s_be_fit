@@ -36,7 +36,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <i class="fas fa-images"></i>
             </label>
             <div>
-            <input th:field="*{birthday}" placeholder="YYYY-MM-DD" type="date"></div>
+                <input th:field="*{birthday}" placeholder="YYYY-MM-DD" type="date"></div>
         </div>
         <div class="form-style-agile">
             <div style="color: white; text-align: center"></div>
@@ -44,7 +44,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 Gender
                 <i class="fas fa-images"></i>
             </label>
-            <input type="radio" th:each="i : ${sex}" th:value="${i}" th:text="${i}">
+            <div>
+                <input type="radio" th:value="female" text="female" name="sex" id="female">
+                <label for="female">Female</label>
+                <input type="radio" th:value="male" text="male" name="sex" id="male">
+                <label for="male">Male</label></div>
         </div>
         <div class="form-style-agile">
             <div style="color: white; text-align: center"></div>
@@ -60,7 +64,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 Level of activity
                 <i class="fas fa-images"></i>
             </label>
-            <input type="radio" th:each="i : ${activity}" th:value="${i}" th:text="${i}">
+            <div>
+                <section>
+                    <label style="color: white;font-weight: bold"></label>
+                    <select class="select-css" th:field="*{activity}">
+                        <option th:value="1.2">Sedentary - if you do minimal exercise or no exercise</option>
+                        <option th:value="1.375">Slightly active - if you exercise lightly one to three days a week</option>
+                        <option th:value="1.55">Moderately active - if you exercise moderately for three to five days a week</option>
+                        <option th:value="1.725">Very active - if you exercise vigorously six to seven days a week,</option>
+                        <option th:value="1.9">Extra active - if you do very heavy exercise six to seven days a week or do physical labor</option>
+                    </select>
+                </section>
+            </div>
+            <input type="hidden" th:value="${userId.id}" id="user" name="user"/>
+            <br/>
         </div>
 
         <!-- checkbox -->

@@ -49,10 +49,12 @@ public class UserController {
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
         UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
-        if(userDetails==null){
-            model.addAttribute("bmr","Data not inserted yet");
+        if (userDetails == null) {
+            model.addAttribute("bmr", "Please insert data in Calculation Data tab");
+        } else if (userDetails.getWeights().isEmpty()) {
+            model.addAttribute("bmr", "Please insert first weight using button below");
         } else {
-            model.addAttribute("bmr",userDetailsService.calculateBMR(userDetails));
+            model.addAttribute("bmr", userDetailsService.calculateBMR(userDetails));
         }
         return "dashboard";
     }
