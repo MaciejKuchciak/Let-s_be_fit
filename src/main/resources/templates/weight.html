@@ -65,7 +65,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <i class="fas fa-images"></i>
             </label>
             <input th:field="*{currentWeight}" placeholder="0" type="number" required="" min="0" step="0.1">
-            <input type="hidden" th:field="*{userDetails}"/>
+            <input type="text" th:value="${userDetailsId.id}" id="userDetails" name="userDetails"/>
         </div>
 
         <!-- checkbox -->

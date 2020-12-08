@@ -1,8 +1,6 @@
 package pl.coderslab.letsbefit.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -10,6 +8,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @AllArgsConstructor
+@ToString(exclude = "password")
+@EqualsAndHashCode(of = "login")
 @Table(name = "users")
 public class User {
 
@@ -53,5 +53,19 @@ public class User {
         this.password = password;
         this.superadmin = superadmin;
         this.enable = enable;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", superadmin=" + superadmin +
+                ", enable=" + enable +
+                '}';
     }
 }

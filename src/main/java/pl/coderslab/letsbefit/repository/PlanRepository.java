@@ -18,4 +18,7 @@ public interface PlanRepository extends JpaRepository<Plan, Long> {
     @Query("SELECT p FROM User u JOIN Plan p on u.id = p.id WHERE u.login = ?1")
     Plan getPlanByUserLogin(String username);
 
+    @Query(value = "SELECT COUNT(DISTINCT u.id) FROM plans p JOIN users u on p.user_id = u.id WHERE u.login = ?1",nativeQuery = true)
+    int plansQuantity(String username);
+
 }

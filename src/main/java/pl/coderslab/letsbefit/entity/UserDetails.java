@@ -3,6 +3,7 @@ package pl.coderslab.letsbefit.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -23,6 +24,7 @@ public class UserDetails {
     @Column(columnDefinition="VARCHAR(6) NULL COMMENT 'User sex'")
     private String sex;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(columnDefinition="DATE NULL COMMENT 'User date of birth'")
     private LocalDate birthday;
 
@@ -45,5 +47,17 @@ public class UserDetails {
         this.birthday = birthday;
         this.height = height;
         this.activity = activity;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDetails{" +
+                "id=" + id +
+                ", sex='" + sex + '\'' +
+                ", birthday=" + birthday +
+                ", height=" + height +
+                ", activity=" + activity +
+                ", user=" + user +
+                '}';
     }
 }

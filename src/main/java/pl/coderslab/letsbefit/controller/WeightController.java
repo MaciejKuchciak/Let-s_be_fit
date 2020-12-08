@@ -28,8 +28,8 @@ public class WeightController {
     @GetMapping("")
     public String weight(Model model) {
         UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
-//        userDetailsService.get(userDetails.getId());
-        model.addAttribute("userDetails", userDetails);
+        UserDetails userDetailsId = userDetailsService.get(userDetails.getId());
+        model.addAttribute("userDetailsId",userDetailsId);
         model.addAttribute("weight", new Weight());
         return "weight";
     }

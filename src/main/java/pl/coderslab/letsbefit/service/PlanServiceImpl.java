@@ -3,7 +3,6 @@ package pl.coderslab.letsbefit.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.coderslab.letsbefit.entity.Plan;
-import pl.coderslab.letsbefit.entity.User;
 import pl.coderslab.letsbefit.repository.PlanRepository;
 
 import java.util.List;
@@ -47,5 +46,10 @@ public class PlanServiceImpl implements PlanService{
     @Override
     public Plan getPlanByUserLogin(String username) {
         return planRepository.getPlanByUserLogin(username);
+    }
+
+    @Override
+    public int plansQuantity(String username) {
+        return planRepository.plansQuantity(username);
     }
 }

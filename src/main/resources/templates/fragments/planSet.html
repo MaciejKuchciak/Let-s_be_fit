@@ -1,0 +1,86 @@
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<body>
+<div th:fragment="planSet">
+
+<!-- title -->
+<h1><strong>Let's be fit! </strong><br>Manage your plan</h1>
+<!-- //title -->
+
+<!-- content -->
+
+<div style="float: left" class="sub-main-w1">
+    <label style="color: white">
+        <strong>Logged as:<br> <span style="font-weight: bold" th:text ="${#authentication.getName()}"></span></strong>
+    </label>
+    <div class="form-style-agile">
+        <a th:href="@{/dashboard}"><div style="text-align: center; width: 75%" class="button">Dashboard</div></a>
+        <a th:href="@{/details}"><div style="text-align: center; width: 75%" class="button">Calculation Data</div></a>
+        <a th:href="@{/plan}"><div style="text-align: center; width: 75%" class="button">Your Plan</div></a>
+        <a th:href="@{/products}"><div style="text-align: center; width: 75%" class="button">Products List</div></a>
+        <a th:href="@{/logout}"><div style="text-align: center; width: 75%" class="button">Logout</div></a>
+    </div>
+</div>
+<div class="sub-main-w2">
+    <form th:object="${plan}" method="post" th:action="@{/plan}">
+        <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
+            <label>
+                Start Date
+                <i class="fas fa-images"></i>
+            </label>
+            <div>
+            <input th:field="*{startDate}" placeholder="DD-MM-YYYY" type="date" required="">
+            </div>
+        </div>
+        <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
+            <label>
+                Target Date
+                <i class="fas fa-images"></i>
+            </label>
+            <div>
+            <input th:field="*{targetDate}" placeholder="DD-MM-YYYY" type="date" required="">
+            </div>
+        </div>
+        <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
+            <label>
+                Target Weight
+                <i class="fas fa-images"></i>
+            </label>
+            <input th:field="*{targetWeight}" placeholder="0" type="number" required="" min="0" step="0.1">
+        </div>
+
+
+        <!-- checkbox -->
+        <!-- //switch -->
+        <div style="min-width:100%;">
+
+            <input type="submit" value="Submit Plan">
+
+        </div>
+    </form>
+
+</div>
+
+<div class="clear"></div>
+<!-- //content -->
+
+<!-- copyright -->
+<div class="footer">
+    <h2>&copy; 2020 Let's' be fit. All rights reserved | Design by
+        <a href="http://w3layouts.com">W3layouts</a>
+    </h2>
+</div>
+<!-- //copyright -->
+</div>
+</body>
+
+</html>

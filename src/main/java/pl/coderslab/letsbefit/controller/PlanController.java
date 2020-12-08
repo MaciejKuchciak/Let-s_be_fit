@@ -24,13 +24,16 @@ public class PlanController {
     @GetMapping("")
     public String plan(Model model) {
         Plan plan = planService.getPlanByUserLogin(SecurityUtils.login());
+        model.addAttribute("newPlan", new Plan());
         model.addAttribute("plan", plan);
+        int numbersOfPlans = planService.plansQuantity(SecurityUtils.login());
+        model.addAttribute("numbersOfPlans", numbersOfPlans);
         return "plan";
     }
 
     @PostMapping
     public String addPlan(Plan plan){
         planService.add(plan);
-        return "plan";
+        return "redirect:/plan";
     }
 }
