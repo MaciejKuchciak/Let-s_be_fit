@@ -14,6 +14,9 @@ public interface WeightRepository extends JpaRepository<Weight, Long> {
     List<Weight> findAll();
 
     @Query("SELECT w FROM User u JOIN Weight w on u.id = w.id WHERE u.login = ?1 ORDER BY w.creationDate")
-    List<Weight> getWeightByUserLogin(String username);
+    List<Weight> getAllWeightsByUserLogin(String username);
+
+    @Query("SELECT w FROM User u JOIN Weight w on u.id = w.id WHERE u.login = ?1 ORDER BY w.creationDate")
+    Weight getWeightByUserLogin(String username);
 
 }

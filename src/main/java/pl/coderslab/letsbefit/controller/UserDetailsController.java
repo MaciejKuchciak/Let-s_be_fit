@@ -4,12 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.letsbefit.app.SecurityUtils;
 import pl.coderslab.letsbefit.entity.UserDetails;
 import pl.coderslab.letsbefit.service.UserDetailsService;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("details")
@@ -28,4 +27,11 @@ public class UserDetailsController {
         model.addAttribute("userDetails", userDetails);
         return "details";
     }
+
+    @PostMapping("")
+    public String addUserDetails(UserDetails userDetails){
+        userDetailsService.add(userDetails);
+        return "details";
+    }
+
 }

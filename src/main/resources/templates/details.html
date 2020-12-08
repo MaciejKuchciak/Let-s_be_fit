@@ -57,19 +57,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 </div>
 <div class="sub-main-w2">
-    <form th:object="${userDetails}" method="post" th:action="@{/userDetails}">
+    <form th:object="${userDetails}" method="post" th:action="@{/details}">
         <div class="form-style-agile">
             <div style="color: white; text-align: center"></div>
             <label>
                 Date of Birth
                 <i class="fas fa-images"></i>
             </label>
-<!--            <input th:field="*{birthday}" placeholder="DD-MM-YYYY" type="date">-->
+            <div>
+            <input th:field="*{birthday}" placeholder="YYYY-MM-DD" type="date"></div>
         </div>
         <div class="form-style-agile">
             <div style="color: white; text-align: center"></div>
             <label>
-                Sex
+                Gender
                 <i class="fas fa-images"></i>
             </label>
 <!--            <input th:field="*{sex}" placeholder="DD-MM-YYYY" type="radio">-->
@@ -80,7 +81,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 Height
                 <i class="fas fa-images"></i>
             </label>
-<!--            <input th:field="*{height}" placeholder="0" min="0" type="number">-->
+            <input th:field="*{height}" placeholder="0" min="0" type="number">
         </div>
         <div class="form-style-agile">
             <div style="color: white; text-align: center"></div>

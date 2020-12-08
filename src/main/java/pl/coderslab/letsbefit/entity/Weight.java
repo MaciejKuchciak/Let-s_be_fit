@@ -1,6 +1,5 @@
 package pl.coderslab.letsbefit.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,7 +17,7 @@ public class Weight {
     private Long id;
 
     @Column(columnDefinition="DATE NULL COMMENT 'Creation date of the record'")
-    private LocalDate creationDate;
+    private LocalDate creationDate = LocalDate.now();
 
     @Column(columnDefinition="DECIMAL(4,1) NULL COMMENT 'Current user weight'")
     private Double currentWeight;

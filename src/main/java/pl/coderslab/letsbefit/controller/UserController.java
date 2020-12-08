@@ -50,7 +50,7 @@ public class UserController {
     public String dashboard(Model model) {
         UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
         if(userDetails==null){
-            model.addAttribute("bmr","Please provide data first");
+            model.addAttribute("bmr","Data not inserted yet");
         } else {
             model.addAttribute("bmr",userDetailsService.calculateBMR(userDetails));
         }

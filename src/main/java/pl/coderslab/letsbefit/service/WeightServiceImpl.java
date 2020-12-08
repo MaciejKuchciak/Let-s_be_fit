@@ -2,7 +2,6 @@ package pl.coderslab.letsbefit.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.coderslab.letsbefit.entity.User;
 import pl.coderslab.letsbefit.entity.Weight;
 import pl.coderslab.letsbefit.repository.WeightRepository;
 
@@ -44,7 +43,12 @@ public class WeightServiceImpl implements WeightService{
     }
 
     @Override
-    public List<Weight> getWeightByUserLogin(String username) {
+    public List<Weight> getAllWeightsByUserLogin(String username) {
+        return weightRepository.getAllWeightsByUserLogin(username);
+    }
+
+    @Override
+    public Weight getWeightByUserLogin(String username) {
         return weightRepository.getWeightByUserLogin(username);
     }
 }

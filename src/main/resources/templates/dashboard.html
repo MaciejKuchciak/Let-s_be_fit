@@ -10,8 +10,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <title>Let's be fit!'</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8" />
-    <meta name="keywords" content="Fitness Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"
+    <meta charset="UTF-8"/>
+    <meta name="keywords"
+          content="Fitness Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"
     />
     <script>
         addEventListener("load", function () {
@@ -25,7 +26,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- Meta tag Keywords -->
 
     <!-- css files -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
     <!-- Style-CSS -->
     <link rel="stylesheet" href="css/fontawesome-all.css">
     <!-- Font-Awesome-Icons-CSS -->
@@ -33,7 +34,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     <!-- web-fonts -->
     <link href="//fonts.googleapis.com/css?family=Sigmar+One&amp;subset=latin-ext,vietnamese" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
     <!-- //web-fonts -->
 </head>
 
@@ -46,31 +48,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <div style="float: left" class="sub-main-w1">
     <label style="color: white">
-        <strong>Logged as:<br> <span style="font-weight: bold" th:text ="${#authentication.getName()}"></span></strong>
+        <strong>Logged as:<br> <span style="font-weight: bold" th:text="${#authentication.getName()}"></span></strong>
     </label>
     <div class="form-style-agile">
-        <a th:href="@{/dashboard}"><div style="text-align: center; width: 75%" class="button">Dashboard</div></a>
-        <a th:href="@{/details}"><div style="text-align: center; width: 75%" class="button">Calculation Data</div></a>
-        <a th:href="@{/plan}"><div style="text-align: center; width: 75%" class="button">Your Plan</div></a>
-        <a th:href="@{/products}"><div style="text-align: center; width: 75%" class="button">Products List</div></a>
-        <a th:href="@{/logout}"><div style="text-align: center; width: 75%" class="button">Logout</div></a>
+        <a th:href="@{/dashboard}">
+            <div style="text-align: center; width: 75%" class="button">Dashboard</div>
+        </a>
+        <a th:href="@{/details}">
+            <div style="text-align: center; width: 75%" class="button">Calculation Data</div>
+        </a>
+        <a th:href="@{/plan}">
+            <div style="text-align: center; width: 75%" class="button">Your Plan</div>
+        </a>
+        <a th:href="@{/products}">
+            <div style="text-align: center; width: 75%" class="button">Products List</div>
+        </a>
+        <a th:href="@{/logout}">
+            <div style="text-align: center; width: 75%" class="button">Logout</div>
+        </a>
     </div>
 </div>
 <div class="sub-main-w2">
     <form action="#" method="post">
         <div class="form-style-agile">
-            <label>
-                <progress class="progress-bar" th:value="30" max="100"></progress>
-            </label>
+            <span><progress class="progress-bar" th:value="30" max="100"></progress></span>
         </div>
-        <div>
-            <span th:text="${bmr}"></span>
+        <div style="color: white">
+            Your current Basal Metabolic Rate (BMR) is:
+            <span style="font-weight: bold; font-size: 40px; color: greenyellow" th:text="${bmr}"></span>
         </div>
         <!-- checkbox -->
         <!-- //switch -->
         <div style="min-width:100%;">
 
-            <a th:href="@{/weight}"><div style="text-align: center; width: 75%" class="button">Add today's weight</div></a>
+            <a th:href="@{/weight}">
+                <div style="text-align: center; width: 75%" class="button">Add today's weight</div>
+            </a>
 
         </div>
     </form>
