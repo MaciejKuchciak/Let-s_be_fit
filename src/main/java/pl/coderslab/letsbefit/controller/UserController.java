@@ -78,12 +78,14 @@ public class UserController {
         } else {
             model.addAttribute("bmr", userDetailsService.calculateBMR(userDetails));
         }
-        if(lastWeight == null && plan == null){
+        if(lastWeight == null || plan == null){
             model.addAttribute("forecastedDate","Data missing");
         } else {
             LocalDate forecastedDate = userService.forecastRealDate(plan,lastWeight);
             model.addAttribute("forecastedDate",forecastedDate);
         }
+        double weightChange = weightService.differenceInWeightByUserLogin(SecurityUtils.login());
+        model.addAttribute("weightChange",weightChange);
         return "dashboard";
     }
 

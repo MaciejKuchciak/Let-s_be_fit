@@ -92,9 +92,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div style="font-weight: bold">Your current weight [kg]:</div>
             <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${lastWeight}"></div>
         </div>
-        <div style="color: white; text-align: center; width: 100%">
-            <div style="font-weight: bold">You have lost/gained [kg]:(fragments inhere)</div>
-            <!--            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${forecastedDate}"></div>-->
+        <div th:if="${weightChange == -500000}">
+            <div style="color: white; text-align: center; width: 100%">
+                <div style="font-weight: bold">You have gained [kg]:</div>
+                <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="'Data missing'"></div>
+            </div>
+        </div>
+        <div th:if="${weightChange >= 0}">
+            <div th:include="fragments/dashboardGained :: dashboardGained"></div>
+        </div>
+        <div th:if="${weightChange < 0 && weightChange > -500000}">
+            <div th:include="fragments/dashboardLost :: dashboardLost"></div>
         </div>
         <div style="color: white; text-align: center; width: 100%">
             <div style="font-weight: bold">Target weight [kg]:</div>

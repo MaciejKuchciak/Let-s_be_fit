@@ -24,4 +24,8 @@ public interface WeightService {
 
     Weight getLastWeightByUserLogin(String username);
 
+    double differenceInWeightByUserLogin(String username);
+
+    Weight getFirstWeightByUserLogin(String username);
+
 }

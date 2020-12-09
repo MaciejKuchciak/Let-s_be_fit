@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.letsbefit.app.SecurityUtils;
+import pl.coderslab.letsbefit.entity.Plan;
 import pl.coderslab.letsbefit.entity.UserDetails;
 import pl.coderslab.letsbefit.entity.Weight;
+import pl.coderslab.letsbefit.service.PlanService;
 import pl.coderslab.letsbefit.service.UserDetailsService;
 import pl.coderslab.letsbefit.service.WeightService;
 
@@ -19,17 +21,20 @@ public class WeightController {
 
     private final WeightService weightService;
     private final UserDetailsService userDetailsService;
+    private final PlanService planService;
 
     @Autowired
-    public WeightController(WeightService weightService, UserDetailsService userDetailsService) {
+    public WeightController(WeightService weightService, UserDetailsService userDetailsService, PlanService planService) {
         this.weightService = weightService;
         this.userDetailsService = userDetailsService;
+        this.planService = planService;
     }
 
     @GetMapping("")
     public String weight(Model model) {
         UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
-        if(userDetails == null){
+        Plan plan = planService.getPlanByUserLogin(SecurityUtils.login());
+        if(userDetails == null || plan == null){
             return "redirect:/dashboard";
         }
         UserDetails userDetailsId = userDetailsService.get(userDetails.getId());

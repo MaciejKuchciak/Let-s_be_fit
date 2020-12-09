@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<body>
+<div th:fragment="dashboardLost">
+            <div style="color: white; text-align: center; width: 100%">
+                <div style="font-weight: bold">You have lost [kg]:</div>
+                            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${weightChange}"></div>
+            </div>
+</div>
+</body>
+
+</html>

@@ -25,4 +25,7 @@ public interface WeightRepository extends JpaRepository<Weight, Long> {
     @Query(value = "SELECT w.id,w.creation_date,w.current_weight,w.user_details_id FROM weights w JOIN users_details ud on w.user_details_id = ud.id JOIN users u on u.id = ud.user_id WHERE u.login = ?1 ORDER BY w.creation_date DESC LIMIT 1",nativeQuery = true)
     Weight getLastWeightByUserLogin(String username);
 
+    @Query(value = "SELECT w.id,w.creation_date,w.current_weight,w.user_details_id FROM weights w JOIN users_details ud on w.user_details_id = ud.id JOIN users u on u.id = ud.user_id WHERE u.login = ?1 ORDER BY w.creation_date ASC LIMIT 1",nativeQuery = true)
+    Weight getFirstWeightByUserLogin(String username);
+
 }
