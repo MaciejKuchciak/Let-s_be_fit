@@ -73,21 +73,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <div class="sub-main-w2">
     <form>
-<!--        table -->
-        <div style="width: 100%; display: flex; justify-content: center" >
-            <table style="width: 100%">
-                <thead style="text-align: center">
-                    <th style="width: 100%;text-align: center">Progress Chart</th>
-                </thead>
-                <tbody>
-<!--                <tr th:each="product: ${products}">-->
-<!--                    <td th:text="${product.name}" ></td>-->
-<!--                    <td th:text="${product.calories}" style="padding-left: 100px"></td>-->
-<!--                </tr>-->
-                </tbody>
-            </table>
+        <div>
+            <div style="font-weight: bold; font-size: 35px; color: white" th:text="'Welcome '+${firstName}+' '+${lastName}+'!'"></div><br>
         </div>
-<!--        /table-->
         <div style="color: white; text-align: center; width: 100%">
             <div style="font-weight: bold">Your current weight [kg]:</div>
             <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${lastWeight}"></div>

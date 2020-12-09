@@ -56,6 +56,9 @@ public class UserController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
+        User user = userService.getByLogin(SecurityUtils.login());
+        model.addAttribute("firstName",user.getFirstName());
+        model.addAttribute("lastName",user.getLastName());
         Weight lastWeight = weightService.getLastWeightByUserLogin(SecurityUtils.login());
         if(lastWeight == null){
             model.addAttribute("lastWeight", "No weight provided yet");
