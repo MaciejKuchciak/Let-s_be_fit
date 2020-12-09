@@ -54,6 +54,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <a th:href="@{/dashboard}">
             <div style="text-align: center; width: 75%" class="button">Dashboard</div>
         </a>
+        <a th:href="@{/weight}">
+            <div style="text-align: center; width: 75%" class="button">Add today's weight</div>
+        </a>
         <a th:href="@{/details}">
             <div style="text-align: center; width: 75%" class="button">Calculation Data</div>
         </a>
@@ -70,22 +73,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <div class="sub-main-w2">
     <form action="#" method="post">
-        <div class="form-style-agile">
-            <span><progress class="progress-bar" th:value="30" max="100"></progress></span>
-        </div>
+<!--        <div class="form-style-agile">-->
+<!--            <span><progress class="progress-bar" th:value="30" max="100"></progress></span>-->
+<!--        </div>-->
         <div style="color: white; text-align: center">
-            <div>Calories per day (BMR):</div>
+            <div style="font-weight: bold">Calories per day (BMR):</div>
             <div style="font-weight: bold; font-size: 40px; color: greenyellow" th:text="${bmr}"></div>
         </div>
         <!-- checkbox -->
         <!-- //switch -->
-<!--        <div style="min-width:100%;">-->
-
-            <a th:href="@{/weight}">
-                <div style="text-align: center; width: 100%" class="button">Add today's weight</div>
-            </a>
-
-<!--        </div>-->
     </form>
 
 </div>

@@ -50,9 +50,9 @@ public class UserController {
     public String dashboard(Model model) {
         UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
         if (userDetails == null) {
-            model.addAttribute("bmr", "Please insert data in Calculation Data tab");
+            model.addAttribute("bmr", "Please insert data in \"Calculation Data\" tab");
         } else if (userDetails.getWeights().isEmpty()) {
-            model.addAttribute("bmr", "Please insert first weight using button below");
+            model.addAttribute("bmr", "Please insert weight in \"Add Today's Weight\" tab");
         } else {
             model.addAttribute("bmr", userDetailsService.calculateBMR(userDetails));
         }

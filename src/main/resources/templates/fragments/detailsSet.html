@@ -23,6 +23,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <a th:href="@{/dashboard}">
                 <div style="text-align: center; width: 75%" class="button">Dashboard</div>
             </a>
+            <a th:href="@{/weight}">
+                <div style="text-align: center; width: 75%" class="button">Add today's weight</div>
+            </a>
             <a th:href="@{/details}">
                 <div style="text-align: center; width: 75%" class="button">Calculation Data</div>
             </a>
@@ -41,18 +44,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <form th:object="${userDetails}" method="post" th:action="@{/details}">
             <div class="form-style-agile">
                 <div style="color: white; text-align: center"></div>
-                <label>
+                <label style="font-weight: bold">
                     Date of Birth
-                    <i class="fas fa-images"></i>
+                    <i class="fas fa-birthday-cake"></i>
                 </label>
                 <div>
                     <input th:field="*{birthday}" placeholder="YYYY-MM-DD" type="date"></div>
             </div>
             <div class="form-style-agile">
                 <div style="color: white; text-align: center"></div>
-                <label>
+                <label style="font-weight: bold">
                     Gender
-                    <i class="fas fa-images"></i>
+                    <i class="fas fa-venus-mars"></i>
                 </label>
                 <div>
                 <input th:field="*{sex}" type="radio" th:value="female" text="female" name="sex" id="female">
@@ -62,17 +65,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
             <div class="form-style-agile">
                 <div style="color: white; text-align: center"></div>
-                <label>
+                <label style="font-weight: bold">
                     Height
-                    <i class="fas fa-images"></i>
+                    <i class="fas fa-arrows-alt-v"></i>
                 </label>
                 <input th:field="*{height}" placeholder="0" min="0" type="number">
             </div>
             <div class="form-style-agile">
                 <div style="color: white; text-align: center"></div>
-                <label>
+                <label style="font-weight: bold">
                     Level of activity
-                    <i class="fas fa-images"></i>
+                    <i class="fas fa-bicycle"></i>
                 </label>
                 <section>
                     <select class="select" th:field="*{activity}">
