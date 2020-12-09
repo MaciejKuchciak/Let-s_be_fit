@@ -72,13 +72,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 </div>
 <div class="sub-main-w2">
-    <form action="#" method="post">
-<!--        <div class="form-style-agile">-->
-<!--            <span><progress class="progress-bar" th:value="30" max="100"></progress></span>-->
-<!--        </div>-->
-        <div style="color: white; text-align: center">
+    <form>
+<!--        table -->
+        <div style="width: 100%; display: flex; justify-content: center" >
+            <table style="width: 100%">
+                <thead style="text-align: center">
+                    <th style="width: 100%;text-align: center">Progress Chart</th>
+                </thead>
+                <tbody>
+<!--                <tr th:each="product: ${products}">-->
+<!--                    <td th:text="${product.name}" ></td>-->
+<!--                    <td th:text="${product.calories}" style="padding-left: 100px"></td>-->
+<!--                </tr>-->
+                </tbody>
+            </table>
+        </div>
+<!--        /table-->
+        <div style="color: white; text-align: center; width: 100%">
+            <div style="font-weight: bold">Your current weight:</div>
+            <div style="font-weight: bold; font-size: 40px; color: greenyellow" th:text="${lastWeight} + ' ' +kg"></div>
+        </div>
+        <div style="color: white; text-align: center; width: 100%">You have lost/gained:(fragments inhere)</div>
+        <div style="color: white; text-align: center; width: 100%">Target weight:</div>
+        <div style="color: white; text-align: center; width: 100%">By loosing 0,5kg per week (recommended) you will achieve your weight on (calculated date):</div>
+        <div style="color: white; text-align: center; width: 100%">Target date:</div>
+        <div style="color: white; text-align: center; width: 100%">
             <div style="font-weight: bold">Calories per day (BMR):</div>
-            <div style="font-weight: bold; font-size: 40px; color: greenyellow" th:text="${bmr}"></div>
+            <div style="font-weight: bold; font-size: 40px; color: greenyellow" th:text="${bmr} + ' ' +kcal"></div>
         </div>
         <!-- checkbox -->
         <!-- //switch -->

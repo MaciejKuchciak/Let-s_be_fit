@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.letsbefit.app.SecurityUtils;
 import pl.coderslab.letsbefit.entity.User;
 import pl.coderslab.letsbefit.entity.UserDetails;
+import pl.coderslab.letsbefit.entity.Weight;
+import pl.coderslab.letsbefit.service.PlanService;
 import pl.coderslab.letsbefit.service.UserDetailsService;
 import pl.coderslab.letsbefit.service.UserService;
-
-import java.util.List;
+import pl.coderslab.letsbefit.service.WeightService;
 
 
 @Controller
@@ -22,11 +23,15 @@ public class UserController {
 
     private final UserService userService;
     private final UserDetailsService userDetailsService;
+    private final WeightService weightService;
+    private final PlanService planService;
 
     @Autowired
-    public UserController(UserService userService, UserDetailsService userDetailsService) {
+    public UserController(UserService userService, UserDetailsService userDetailsService, WeightService weightService, PlanService planService) {
         this.userService = userService;
         this.userDetailsService = userDetailsService;
+        this.weightService = weightService;
+        this.planService = planService;
     }
 
     @GetMapping("/index")
@@ -48,6 +53,8 @@ public class UserController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
+        Weight lastWeight = weightService.getLastWeightByUserLogin(SecurityUtils.login());
+        model.addAttribute("lastWeight", lastWeight.getCurrentWeight());
         UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
         if (userDetails == null) {
             model.addAttribute("bmr", "Please insert data in \"Calculation Data\" tab");
