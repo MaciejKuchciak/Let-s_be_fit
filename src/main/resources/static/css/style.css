@@ -325,7 +325,9 @@ h1 span {
     text-align: center;
 }
 
-.form-style-agile input[type="text"], .form-style-agile input[type="number"],.form-style-agile input[type="password"] {
+.form-style-agile input[type="text"], .form-style-agile input[type="number"],
+.form-style-agile input[type="date"], .form-style-agile input[type="password"],
+.select {
     width: 100%;
     color: #000;
     outline: none;
@@ -839,3 +841,4 @@ h1 span {
     position: relative;
     display: block;
 }
+

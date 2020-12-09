@@ -64,18 +64,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 Level of activity
                 <i class="fas fa-images"></i>
             </label>
-            <div>
                 <section>
-                    <label style="color: white;font-weight: bold"></label>
-                    <select class="select-css" th:field="*{activity}">
-                        <option th:value="1.2">Sedentary - if you do minimal exercise or no exercise</option>
-                        <option th:value="1.375">Slightly active - if you exercise lightly one to three days a week</option>
-                        <option th:value="1.55">Moderately active - if you exercise moderately for three to five days a week</option>
-                        <option th:value="1.725">Very active - if you exercise vigorously six to seven days a week,</option>
-                        <option th:value="1.9">Extra active - if you do very heavy exercise six to seven days a week or do physical labor</option>
+                    <select class="select" th:field="*{activity}">
+                        <option th:value="1.2">Sedentary - minimal exercise or no exercise</option>
+                        <option th:value="1.375">Slightly active - exercise lightly one to three days a week</option>
+                        <option th:value="1.55">Moderately active - exercise moderately for three to five days a week</option>
+                        <option th:value="1.725">Very active - exercise vigorously six to seven days a week</option>
+                        <option th:value="1.9">Extra active - very heavy exercise six to seven days a week or do physical labor</option>
                     </select>
                 </section>
-            </div>
             <input type="hidden" th:value="${userId.id}" id="user" name="user"/>
             <br/>
         </div>
@@ -96,7 +93,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <!-- copyright -->
 <div class="footer">
-    <h2>&copy; 2020 Let's' be fit. All rights reserved | Design by
+    <h2>&copy; 2020 Let's be fit. All rights reserved | Design by
         <a href="http://w3layouts.com">W3layouts</a>
     </h2>
 </div>
