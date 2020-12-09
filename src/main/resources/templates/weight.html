@@ -38,58 +38,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 
 <body>
-<!-- title -->
-<h1><strong>Let's be fit! </strong><br>Add Current Weight</h1>
-<!-- //title -->
-
-<!-- content -->
-
-<div style="float: left" class="sub-main-w1">
-    <label style="color: white">
-        <strong>Logged as:<br> <span style="font-weight: bold" th:text ="${#authentication.getName()}"></span></strong>
-    </label>
-    <div class="form-style-agile">
-        <a th:href="@{/dashboard}"><div style="text-align: center; width: 75%" class="button">Dashboard</div></a>
-        <a th:href="@{/details}"><div style="text-align: center; width: 75%" class="button">Calculation Data</div></a>
-        <a th:href="@{/plan}"><div style="text-align: center; width: 75%" class="button">Your Plan</div></a>
-        <a th:href="@{/products}"><div style="text-align: center; width: 75%" class="button">Products List</div></a>
-        <a th:href="@{/logout}"><div style="text-align: center; width: 75%" class="button">Logout</div></a>
-    </div>
+<div th:if="${numbersOfWeights == 0}">
+    <div th:include="fragments/weightNotSet :: weightNotSet"></div>
 </div>
-<div class="sub-main-w2">
-    <form th:object="${weight}" method="post" th:action="@{/weight}">
-        <div class="form-style-agile">
-            <div style="color: white; text-align: center"></div>
-            <label>
-                Current Weight
-                <i class="fas fa-images"></i>
-            </label>
-            <input th:field="*{currentWeight}" placeholder="0" type="number" required="" min="0" step="0.1">
-            <input type="hidden" th:value="${userDetailsId.id}" id="userDetails" name="userDetails"/>
-        </div>
-
-        <!-- checkbox -->
-        <!-- //switch -->
-        <div style="min-width:100%;">
-
-            <input type="submit" value="Add Weight">
-
-        </div>
-    </form>
-
+<div th:if="${numbersOfWeights > 0}">
+    <div th:include="fragments/weightSet :: weightSet"></div>
 </div>
-
-<div class="clear"></div>
-<!-- //content -->
-
-<!-- copyright -->
-<div class="footer">
-    <h2>&copy; 2020 Let's' be fit. All rights reserved | Design by
-        <a href="http://w3layouts.com">W3layouts</a>
-    </h2>
-</div>
-<!-- //copyright -->
-
 </body>
 
 </html>

@@ -2,9 +2,10 @@ package pl.coderslab.letsbefit.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -16,8 +17,9 @@ public class Weight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition="DATE NULL COMMENT 'Creation date of the record'")
-    private LocalDate creationDate = LocalDate.now();
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:MM:ss")
+    @Column(columnDefinition="DATETIME NULL COMMENT 'Creation date of the record'")
+    private LocalDateTime creationDate = LocalDateTime.now();
 
     @Column(columnDefinition="DECIMAL(4,1) NULL COMMENT 'Current user weight'")
     private Double currentWeight;
@@ -25,7 +27,7 @@ public class Weight {
     @ManyToOne
     private UserDetails userDetails;
 
-    public Weight(Long id, LocalDate creationDate, Double currentWeight, UserDetails userDetails) {
+    public Weight(Long id, LocalDateTime creationDate, Double currentWeight, UserDetails userDetails) {
         this.id = id;
         this.creationDate = creationDate;
         this.currentWeight = currentWeight;

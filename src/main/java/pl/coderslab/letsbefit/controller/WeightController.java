@@ -12,6 +12,7 @@ import pl.coderslab.letsbefit.entity.Weight;
 import pl.coderslab.letsbefit.service.UserDetailsService;
 import pl.coderslab.letsbefit.service.WeightService;
 
+
 @Controller
 @RequestMapping("weight")
 public class WeightController {
@@ -32,8 +33,12 @@ public class WeightController {
             return "redirect:/dashboard";
         }
         UserDetails userDetailsId = userDetailsService.get(userDetails.getId());
+        Weight lastWeight = weightService.getLastWeightByUserLogin(SecurityUtils.login());
         model.addAttribute("userDetailsId",userDetailsId);
-        model.addAttribute("weight", new Weight());
+        model.addAttribute("newWeight", new Weight());
+        model.addAttribute("lastWeight", lastWeight);
+        int numbersOfWeights = weightService.weightsQuantity(SecurityUtils.login());
+        model.addAttribute("numbersOfWeights",numbersOfWeights);
         return "weight";
     }
 

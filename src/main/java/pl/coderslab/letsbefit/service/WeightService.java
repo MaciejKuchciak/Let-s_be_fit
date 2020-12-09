@@ -20,4 +20,8 @@ public interface WeightService {
 
     Weight getWeightByUserLogin(String username);
 
+    int weightsQuantity(String username);
+
+    Weight getLastWeightByUserLogin(String username);
+
 }

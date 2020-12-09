@@ -7,7 +7,7 @@ import pl.coderslab.letsbefit.entity.Weight;
 import pl.coderslab.letsbefit.service.UserDetailsService;
 import pl.coderslab.letsbefit.service.WeightService;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,14 +24,14 @@ public class WeightFixture {
     }
 
     private List<Weight> weights = Arrays.asList(
-            new Weight(null, LocalDate.of(2020,12,1), 101.0,null),
-            new Weight(null, LocalDate.of(2020,12,1), 91.3,null),
-            new Weight(null, LocalDate.of(2020,12,1), 41.2, null),
-            new Weight(null, LocalDate.of(2020,12,1), 67.5, null),
-            new Weight(null, LocalDate.of(2020,12,1), 88.9,null),
-            new Weight(null, LocalDate.of(2020,12,2), 100.6,null),
-            new Weight(null, LocalDate.of(2020,12,3), 100.1,null),
-            new Weight(null, LocalDate.of(2020,12,4), 99.4,null)
+            new Weight(null, LocalDateTime.of(2020,12,1,19,39,55), 101.0,null),
+            new Weight(null, LocalDateTime.of(2020,12,1,20,00,00), 91.3,null),
+            new Weight(null, LocalDateTime.of(2020,12,1,20,00,00), 41.2, null),
+            new Weight(null, LocalDateTime.of(2020,12,1,20,00,00), 67.5, null),
+            new Weight(null, LocalDateTime.of(2020,12,1,20,00,00), 88.9,null),
+            new Weight(null, LocalDateTime.of(2020,12,2,20,15,00), 100.6,null),
+            new Weight(null, LocalDateTime.of(2020,12,3,21,00,00), 100.1,null),
+            new Weight(null, LocalDateTime.of(2020,12,4,23,10,00), 99.4,null)
             );
 
     public void loadIntoDB() {

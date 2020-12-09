@@ -49,6 +49,16 @@ public class WeightServiceImpl implements WeightService{
 
     @Override
     public Weight getWeightByUserLogin(String username) {
-        return weightRepository.getWeightByUserLogin(username);
+        return weightRepository.getAllWeightsByUserLogin(username).get(weightRepository.getAllWeightsByUserLogin(username).size()-1);
+    }
+
+    @Override
+    public int weightsQuantity(String username) {
+        return weightRepository.weightsQuantity(username);
+    }
+
+    @Override
+    public Weight getLastWeightByUserLogin(String username) {
+        return weightRepository.getLastWeightByUserLogin(username);
     }
 }
