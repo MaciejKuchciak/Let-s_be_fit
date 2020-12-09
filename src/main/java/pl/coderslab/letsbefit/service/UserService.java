@@ -1,7 +1,10 @@
 package pl.coderslab.letsbefit.service;
 
+import pl.coderslab.letsbefit.entity.Plan;
 import pl.coderslab.letsbefit.entity.User;
+import pl.coderslab.letsbefit.entity.Weight;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface UserService {
@@ -20,5 +23,6 @@ public interface UserService {
 
     User getByLogin(String login);
 
+    LocalDate forecastRealDate(Plan plan, Weight weight);
 
 }

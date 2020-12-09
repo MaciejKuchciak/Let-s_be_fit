@@ -3,9 +3,12 @@ package pl.coderslab.letsbefit.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.coderslab.letsbefit.entity.Plan;
 import pl.coderslab.letsbefit.entity.User;
+import pl.coderslab.letsbefit.entity.Weight;
 import pl.coderslab.letsbefit.repository.UserRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -60,5 +63,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getByLogin(String login) {
         return userRepository.getByLogin(login);
+    }
+
+    @Override
+    public LocalDate forecastRealDate(Plan plan, Weight weight) {
+        double kgPerDay = 0.5 / 7;
+        LocalDate today = LocalDate.now();
+        int numOfDaysToBeFit = (int) Math.round(Math.abs((plan.getTargetWeight() - weight.getCurrentWeight())/(kgPerDay)));
+        return today.plusDays(numOfDaysToBeFit);
     }
 }

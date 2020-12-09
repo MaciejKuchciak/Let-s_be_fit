@@ -89,16 +89,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
 <!--        /table-->
         <div style="color: white; text-align: center; width: 100%">
-            <div style="font-weight: bold">Your current weight:</div>
-            <div style="font-weight: bold; font-size: 40px; color: greenyellow" th:text="${lastWeight} + ' ' +kg"></div>
+            <div style="font-weight: bold">Your current weight [kg]:</div>
+            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${lastWeight}"></div>
         </div>
-        <div style="color: white; text-align: center; width: 100%">You have lost/gained:(fragments inhere)</div>
-        <div style="color: white; text-align: center; width: 100%">Target weight:</div>
-        <div style="color: white; text-align: center; width: 100%">By loosing 0,5kg per week (recommended) you will achieve your weight on (calculated date):</div>
-        <div style="color: white; text-align: center; width: 100%">Target date:</div>
         <div style="color: white; text-align: center; width: 100%">
-            <div style="font-weight: bold">Calories per day (BMR):</div>
-            <div style="font-weight: bold; font-size: 40px; color: greenyellow" th:text="${bmr} + ' ' +kcal"></div>
+            <div style="font-weight: bold">You have lost/gained [kg]:(fragments inhere)</div>
+            <!--            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${forecastedDate}"></div>-->
+        </div>
+        <div style="color: white; text-align: center; width: 100%">
+            <div style="font-weight: bold">Target weight [kg]:</div>
+            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${targetWeight}"></div>
+        </div>
+        <div style="color: white; text-align: center; width: 100%">
+            <div style="font-weight: bold">Your target date:</div>
+            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${targetDate}"></div>
+        </div>
+        <div style="color: white; text-align: center; width: 100%">
+            <div style="font-weight: bold">By loosing or gaining 0,5 kg per week (recommended) you will achieve your weight on:</div>
+            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${forecastedDate}"></div>
+        </div>
+        <div style="color: white; text-align: center; width: 100%">
+            <div style="font-weight: bold">Calories per day (BMR) [kcal]:</div>
+            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${bmr}"></div>
         </div>
         <!-- checkbox -->
         <!-- //switch -->

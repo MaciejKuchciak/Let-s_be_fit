@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.letsbefit.app.SecurityUtils;
+import pl.coderslab.letsbefit.entity.Plan;
 import pl.coderslab.letsbefit.entity.User;
 import pl.coderslab.letsbefit.entity.UserDetails;
 import pl.coderslab.letsbefit.entity.Weight;
@@ -15,6 +16,8 @@ import pl.coderslab.letsbefit.service.PlanService;
 import pl.coderslab.letsbefit.service.UserDetailsService;
 import pl.coderslab.letsbefit.service.UserService;
 import pl.coderslab.letsbefit.service.WeightService;
+
+import java.time.LocalDate;
 
 
 @Controller
@@ -54,7 +57,19 @@ public class UserController {
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
         Weight lastWeight = weightService.getLastWeightByUserLogin(SecurityUtils.login());
-        model.addAttribute("lastWeight", lastWeight.getCurrentWeight());
+        if(lastWeight == null){
+            model.addAttribute("lastWeight", "No weight provided yet");
+        } else {
+            model.addAttribute("lastWeight", lastWeight.getCurrentWeight());
+        }
+        Plan plan = planService.getPlanByUserLogin(SecurityUtils.login());
+        if(plan == null){
+            model.addAttribute("targetWeight","Target weight not set in your plan");
+            model.addAttribute("targetDate","Target date not set in your plan");
+        } else {
+            model.addAttribute("targetWeight",plan.getTargetWeight());
+            model.addAttribute("targetDate",plan.getTargetDate());
+        }
         UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
         if (userDetails == null) {
             model.addAttribute("bmr", "Please insert data in \"Calculation Data\" tab");
@@ -62,6 +77,12 @@ public class UserController {
             model.addAttribute("bmr", "Please insert weight in \"Add Today's Weight\" tab");
         } else {
             model.addAttribute("bmr", userDetailsService.calculateBMR(userDetails));
+        }
+        if(lastWeight == null && plan == null){
+            model.addAttribute("forecastedDate","Data missing");
+        } else {
+            LocalDate forecastedDate = userService.forecastRealDate(plan,lastWeight);
+            model.addAttribute("forecastedDate",forecastedDate);
         }
         return "dashboard";
     }
