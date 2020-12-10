@@ -18,6 +18,7 @@ import pl.coderslab.letsbefit.service.UserService;
 import pl.coderslab.letsbefit.service.WeightService;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 @Controller
@@ -71,7 +72,7 @@ public class UserController {
             model.addAttribute("targetDate","Target date not set in your plan");
         } else {
             model.addAttribute("targetWeight",plan.getTargetWeight());
-            model.addAttribute("targetDate",plan.getTargetDate());
+            model.addAttribute("targetDate",convertDate(plan.getTargetDate()));
         }
         UserDetails userDetails = userDetailsService.getUserDetailsByUserLogin(SecurityUtils.login());
         if (userDetails == null) {
@@ -85,11 +86,17 @@ public class UserController {
             model.addAttribute("forecastedDate","Data missing");
         } else {
             LocalDate forecastedDate = userService.forecastRealDate(plan,lastWeight);
-            model.addAttribute("forecastedDate",forecastedDate);
+            model.addAttribute("forecastedDate",convertDate(forecastedDate));
         }
         double weightChange = weightService.differenceInWeightByUserLogin(SecurityUtils.login());
         model.addAttribute("weightChange",weightChange);
         return "dashboard";
+    }
+
+    private static String convertDate(LocalDate date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formattedDate = date.format(formatter);
+        return formattedDate;
     }
 
 }
