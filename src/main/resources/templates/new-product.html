@@ -67,7 +67,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 Product Name
                 <i class="fas fa-tag"></i>
             </label>
-            <input th:field="*{name}" placeholder="Product name" type="text" required="" min="2">
+            <input th:field="*{name}" placeholder="Product name" type="text" required="" min="2" max="255">
         </div>
         <div class="form-style-agile">
             <div style="color: white; text-align: center"></div>
@@ -77,15 +77,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </label>
             <input th:field="*{calories}" placeholder="0" type="number" required="" min="1">
         </div>
-
-
-<!--        <div class="form-style-agile">-->
-<!--            <label>-->
-<!--                Number of calories in 100g / 100 ml-->
-<!--                <i class="fas fa-poll"></i>-->
-<!--            </label>-->
-<!--            <input th:field="*{calories}" placeholder="Calories" type="number" required="">-->
-<!--        </div>-->
 
         <!-- checkbox -->
         <!-- //switch -->

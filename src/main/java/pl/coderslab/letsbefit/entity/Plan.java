@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.time.LocalDate;
 
 @Data
@@ -23,6 +25,8 @@ public class Plan {
     @Column(columnDefinition="DATE NULL COMMENT 'Start date of the plan'")
     private LocalDate startDate;
 
+    @Max(200)
+    @Min(0)
     @Column(columnDefinition="DECIMAL(4,1) NULL COMMENT 'Desired weight'")
     private Double targetWeight;
 

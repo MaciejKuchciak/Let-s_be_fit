@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.time.LocalDateTime;
 
 @Data
@@ -21,6 +23,8 @@ public class Weight {
     @Column(columnDefinition="DATETIME NULL COMMENT 'Creation date of the record'")
     private LocalDateTime creationDate = LocalDateTime.now();
 
+    @Max(500)
+    @Min(0)
     @Column(columnDefinition="DECIMAL(4,1) NULL COMMENT 'Current user weight'")
     private Double currentWeight;
 

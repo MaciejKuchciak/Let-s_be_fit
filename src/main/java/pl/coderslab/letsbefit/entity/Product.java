@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 
 @Data
 @NoArgsConstructor
@@ -17,6 +18,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Max(255)
     @Column(columnDefinition="VARCHAR(255) NULL COMMENT 'Product name'")
     private String name;
 

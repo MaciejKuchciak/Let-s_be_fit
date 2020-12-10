@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,8 @@ public class UserDetails {
     @Column(columnDefinition="DATE NULL COMMENT 'User date of birth'")
     private LocalDate birthday;
 
+    @Max(300)
+    @Min(0)
     @Column(columnDefinition="INT NULL COMMENT 'User height'")
     private Integer height;
 
