@@ -18,7 +18,6 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Max(255)
     @Column(columnDefinition="VARCHAR(255) NULL COMMENT 'Product name'")
     private String name;
 
