@@ -14,6 +14,8 @@ import pl.coderslab.letsbefit.service.PlanService;
 import pl.coderslab.letsbefit.service.UserDetailsService;
 import pl.coderslab.letsbefit.service.WeightService;
 
+import java.util.List;
+
 
 @Controller
 @RequestMapping("weight")
@@ -53,4 +55,10 @@ public class WeightController {
         return "redirect:/dashboard";
     }
 
+    @GetMapping("progress-chart")
+    public String progressChart(Model model) {
+        List<Weight> weights = weightService.getAllWeightsByUserLogin(SecurityUtils.login());
+        model.addAttribute("weights",weights);
+        return "progress-chart";
+    }
 }

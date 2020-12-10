@@ -1,8 +1,3 @@
-<!--Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html lang="eng" xmlns:th="http://www.thymeleaf.org">
 
@@ -25,7 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- Meta tag Keywords -->
 
     <!-- css files -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
     <!-- Style-CSS -->
     <link rel="stylesheet" href="css/fontawesome-all.css">
     <!-- Font-Awesome-Icons-CSS -->
@@ -39,7 +34,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <body>
 <!-- title -->
-<h1><strong>Let's be fit!</strong><br>Products List</h1>
+<h1><strong>Let's be fit!</strong><br>Progress Chart</h1>
 <!-- //title -->
 
 <!-- content -->
@@ -66,21 +61,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <table>
                 <thead>
                 <tr>
-                    <th>Product Name</th>
-                    <th>Calories in 100g/100ml</th>
+                    <th>Creation Date</th>
+                    <th>Weight</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="product: ${products}">
-                    <td th:text="${product.name}" ></td>
-                    <td th:text="${product.calories}" style="padding-left: 100px"></td>
+                <tr th:each="weight: ${weights}">
+                    <td th:text="${weight.creationDate}" ></td>
+                    <td th:text="${weight.currentWeight}" style="padding-left: 100px"></td>
                 </tr>
                 </tbody>
             </table>
         </div>
-        <a th:href="@{/products/add}"><div style="text-align: center; width: 93%" class="button">Add Product</div></a>
     </form>
-
 </div>
 
 <div class="clear"></div>

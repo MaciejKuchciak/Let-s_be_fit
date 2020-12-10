@@ -22,8 +22,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="form-style-agile">
         <a th:href="@{/dashboard}"><div style="text-align: center; width: 75%" class="button">Dashboard</div></a>
         <a th:href="@{/weight}">
-            <div style="text-align: center; width: 75%" class="button">Add today's weight</div>
+            <div style="text-align: center; width: 75%" class="button">Add Today's Weight</div>
         </a>
+        <a th:href="@{/weight/progress-chart}"><div style="text-align: center; width: 75%" class="button">Progress Chart</div></a>
         <a th:href="@{/details}"><div style="text-align: center; width: 75%" class="button">Calculation Data</div></a>
         <a th:href="@{/plan}"><div style="text-align: center; width: 75%" class="button">Your Plan</div></a>
         <a th:href="@{/products}"><div style="text-align: center; width: 75%" class="button">Products List</div></a>
@@ -59,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 Height
                 <i class="fas fa-arrows-alt-v"></i>
             </label>
-            <input th:field="*{height}" placeholder="0" min="0" type="number" min="0" max="300">
+            <input th:field="*{height}" placeholder="0" type="number" min="0" max="300">
         </div>
         <div class="form-style-agile">
             <div style="color: white; text-align: center"></div>
