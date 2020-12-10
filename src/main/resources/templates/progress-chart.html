@@ -67,7 +67,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="weight: ${weights}">
-                    <td th:text="${weight.creationDate}" ></td>
+                    <td th:text="${#temporals.format(weight.creationDate,'dd-MM-yyyy HH:mm')}" ></td>
                     <td th:text="${weight.currentWeight}" style="padding-left: 100px"></td>
                 </tr>
                 </tbody>
