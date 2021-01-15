@@ -6,9 +6,9 @@ No Pain. No Gain... Or loss if you prefer to lose some extra kilos. This web app
 
 ## About application
 
-This web application is currently in Alpha version. There are still some remaining features to be implemented. It is my original, final project, which I had to defend by fulfilling requirements established in inner policy by [Coderslab](https://coderslab.pl/pl/) in order to obtain dimploma of completion of the course.
+This web application is currently in Alpha version. There are still some remaining features to be implemented. It is my original, final project, which I had to defend by fulfilling requirements established in inner policy by [Coderslab](https://coderslab.pl/pl/) in order to obtain diploma of completion of the course.
 
-At current stage user can register an account, log into the system and provide his data like datebirth, current weight, target date to lose or gain his/her weight etc. The application will calculate user's BMR (Basal Metabolic Rate) and approximete date of achiving the target provided by the user.
+At current stage user can register an account, log into the system and provide his data like datebirth, current weight, target date to lose or gain his/her weight etc. The application will calculate user's BMR (Basal Metabolic Rate) and approximate date of achiving the target provided by the user.
 
 Here are the following technologies used in the project:
 > - Spring Boot
